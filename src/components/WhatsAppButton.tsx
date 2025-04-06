@@ -12,7 +12,7 @@ interface WhatsAppButtonProps {
 
 const WhatsAppButton = ({
   phoneNumber = "5511999999999",
-  message = "Olá! Gostaria de obter um orçamento.",
+  message = "Olá! Gostaria de obter um orçamento para climatizador industrial.",
   className,
   variant = 'inline',
   children
@@ -27,7 +27,7 @@ const WhatsAppButton = ({
         target="_blank"
         rel="noopener noreferrer"
         className={cn(
-          "fixed bottom-6 right-6 bg-green-500 text-white p-4 rounded-full shadow-lg hover:bg-green-600 transition-all z-50",
+          "fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all z-50",
           "hover:scale-110",
           className
         )}
@@ -43,7 +43,7 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center gap-2 bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600 transition-all font-medium",
+        "inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-all font-medium",
         className
       )}
     >

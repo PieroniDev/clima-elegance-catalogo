@@ -19,8 +19,8 @@ const NavBar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
               <img 
-                src="/lovable-uploads/6bac56b4-69a2-4d5d-b6f8-53aa4711bb41.png" 
-                alt="Clima Elegance Logo" 
+                src="/lovable-uploads/5e1aea5c-66ab-4413-85bb-a9a9e2c423d2.png" 
+                alt="Guiasul Logo" 
                 className="h-14 w-auto"
               />
             </Link>

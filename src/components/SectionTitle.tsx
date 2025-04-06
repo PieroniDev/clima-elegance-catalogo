@@ -29,7 +29,7 @@ const SectionTitle = ({
         <p className="text-lg text-gray-600 max-w-3xl mx-auto">{subtitle}</p>
       )}
       <div className={cn(
-        "h-1 bg-secondary w-20 mt-4",
+        "h-1 bg-secondary w-24 mt-4",
         {
           "ml-0 mr-auto": alignment === 'left',
           "mx-auto": alignment === 'center',

@@ -23,7 +23,7 @@ interface ProductCardProps {
 const ProductCard = ({ product, className }: ProductCardProps) => {
   const [isHovered, setIsHovered] = useState(false);
   
-  const whatsappMessage = `Olá! Gostaria de obter um orçamento para o climatizador ${product.name}.`;
+  const whatsappMessage = `Olá! Gostaria de obter um orçamento para o climatizador industrial ${product.name}.`;
   
   return (
     <div 
@@ -44,7 +44,7 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
             isHovered ? "scale-110" : "scale-100"
           )}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex items-end">
+        <div className="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex items-end">
           <h3 className="text-white text-xl font-bold p-4">{product.name}</h3>
         </div>
       </div>

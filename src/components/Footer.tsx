@@ -11,13 +11,13 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="/lovable-uploads/6bac56b4-69a2-4d5d-b6f8-53aa4711bb41.png" 
-              alt="Clima Elegance Logo" 
+              src="/lovable-uploads/5e1aea5c-66ab-4413-85bb-a9a9e2c423d2.png" 
+              alt="Guiasul Logo" 
               className="h-12 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-sm mt-4 text-gray-300">
               Especialistas em climatizadores industriais de alta performance.
-              Tecnologia avançada com economia de energia.
+              Tecnologia avançada para grandes ambientes industriais.
             </p>
           </div>
           
@@ -48,13 +48,13 @@ const Footer = () => {
                 <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Climatizadores Industriais</Link>
               </li>
               <li>
-                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Climatizadores Comerciais</Link>
+                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Climatizadores para Galpões</Link>
               </li>
               <li>
-                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Peças e Acessórios</Link>
+                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Sistemas de Climatização</Link>
               </li>
               <li>
-                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Manutenção</Link>
+                <Link to="/catalogo" className="hover:text-secondary transition-colors duration-300">Manutenção e Assistência</Link>
               </li>
             </ul>
           </div>
@@ -69,7 +69,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start">
                 <Mail className="h-5 w-5 mr-2 text-secondary flex-shrink-0 mt-0.5" />
-                <span>contato@climaelegance.com.br</span>
+                <span>contato@guiasul.com.br</span>
               </li>
               <li className="flex items-start">
                 <MapPin className="h-5 w-5 mr-2 text-secondary flex-shrink-0 mt-0.5" />
@@ -92,7 +92,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-600 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <p className="text-sm text-gray-300">
-            &copy; {new Date().getFullYear()} Clima Elegance. Todos os direitos reservados.
+            &copy; {new Date().getFullYear()} Guiasul. Todos os direitos reservados.
           </p>
           <div className="mt-4 md:mt-0 flex space-x-6">
             <Link to="/politica-privacidade" className="text-sm text-gray-300 hover:text-white transition-colors">

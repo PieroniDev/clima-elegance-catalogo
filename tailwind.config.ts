@@ -26,18 +26,18 @@ export default {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
-					DEFAULT: '#003A5D', // Azul escuro da logo
+					DEFAULT: '#003049', // Dark blue from Guiasul logo
 					foreground: '#FFFFFF',
-					light: '#0057A6', // Versão mais clara para hover
+					light: '#00497A', // Lighter version for hover states
 				},
 				secondary: {
-					DEFAULT: '#F49E00', // Laranja da logo
-					foreground: '#FFFFFF',
-					light: '#FFB42D', // Versão mais clara para hover
+					DEFAULT: '#D8A800', // Gold accent color
+					foreground: '#000000',
+					light: '#FFD100', // Lighter version for hover states
 				},
 				tertiary: {
-					DEFAULT: '#FFFFFF', // Branco da logo
-					foreground: '#003A5D',
+					DEFAULT: '#FFFFFF', // White from logo
+					foreground: '#003049',
 				},
 				destructive: {
 					DEFAULT: 'hsl(var(--destructive))',
@@ -48,8 +48,8 @@ export default {
 					foreground: '#64748b'
 				},
 				accent: {
-					DEFAULT: '#E6F0F9', // Azul claro para seções de destaque
-					foreground: '#003A5D'
+					DEFAULT: '#E6ECF2', // Light blue for accent sections
+					foreground: '#003049'
 				},
 				popover: {
 					DEFAULT: 'hsl(var(--popover))',
