@@ -20,7 +20,7 @@ const Sobre = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Sobre a Clima Elegance
+              Sobre a Guiasul
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-100">
               Inovação, qualidade e compromisso com a eficiência energética.
