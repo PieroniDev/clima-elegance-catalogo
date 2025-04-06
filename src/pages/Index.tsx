@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowRight, Wind, Fan, Factory } from 'lucide-react';
 import { Link } from 'react-router-dom';
