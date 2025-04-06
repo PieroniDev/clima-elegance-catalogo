@@ -7,7 +7,6 @@ import SectionTitle from '@/components/SectionTitle';
 import WhatsAppButton from '@/components/WhatsAppButton';
 import ProductCard, { ProductProps } from '@/components/ProductCard';
 
-// Exemplo de produtos em destaque
 const featuredProducts: ProductProps[] = [
   {
     id: "1",
@@ -56,7 +55,7 @@ const Index = () => {
         <div
           className="absolute inset-0 z-0 opacity-30 bg-cover bg-center"
           style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1547895749-888a559fc2a7?q=80&w=2564&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D)'
+            backgroundImage: 'url(https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80)'
           }}
         ></div>
         
