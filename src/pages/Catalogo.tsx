@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { Filter, Search, Building, Fan, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -178,6 +179,29 @@ const Catalogo = () => {
         : [...prev, value]
     );
   };
+
+  // Define the keyframes animation styles in the component
+  const fadeInAnimationStyle = {
+    opacity: 0,
+    animation: "fadeIn 0.5s ease-out forwards"
+  };
+
+  // Add the keyframe animation to the head of the document once, on component mount
+  useEffect(() => {
+    const styleElement = document.createElement('style');
+    styleElement.innerHTML = `
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+    `;
+    document.head.appendChild(styleElement);
+
+    // Clean up on unmount
+    return () => {
+      document.head.removeChild(styleElement);
+    };
+  }, []);
 
   return (
     <div className="min-h-screen">
@@ -430,9 +454,8 @@ const Catalogo = () => {
                         key={product.id} 
                         className="animate-fade-in" 
                         style={{ 
-                          animationDelay: `${index % productsPerPage * 0.1}s`,
-                          opacity: 0,
-                          animation: "fadeIn 0.5s ease-out forwards" 
+                          ...fadeInAnimationStyle,
+                          animationDelay: `${index % productsPerPage * 0.1}s` 
                         }}
                       >
                         <ProductCard product={product} />
@@ -484,14 +507,6 @@ const Catalogo = () => {
 
       {/* Floating WhatsApp Button */}
       <WhatsAppButton variant="floating" />
-      
-      {/* Adicionar keyframes para fade-in animation */}
-      <style jsx>{`
-        @keyframes fadeIn {
-          from { opacity: 0; transform: translateY(10px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
     </div>
   );
 };
