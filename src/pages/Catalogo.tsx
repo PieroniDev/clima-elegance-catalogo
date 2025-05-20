@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Filter, Search } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -10,8 +9,8 @@ import SectionTitle from '@/components/SectionTitle';
 import ProductCard, { ProductProps } from '@/components/ProductCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
-// Dados simulados dos produtos
-const productData: ProductProps[] = [
+// Dados simulados dos produtos - Exportamos aqui para que outros arquivos possam usar
+export const productData: ProductProps[] = [
   {
     id: "1",
     name: "Climatizador Industrial GL 60",

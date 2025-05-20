@@ -1,8 +1,7 @@
-
 import React, { useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
-import { ArrowLeft, Check, FileText, Factory, Tool } from 'lucide-react';
+import { ArrowLeft, Check, FileText, Factory, Settings } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
@@ -13,7 +12,8 @@ import { Form, FormField, FormItem, FormLabel, FormControl } from '@/components/
 import { cn } from '@/lib/utils';
 import { toast } from '@/hooks/use-toast';
 import WhatsAppButton from '@/components/WhatsAppButton';
-import { productData } from './Catalogo';
+// We need to export productData from Catalogo
+import { productData } from '@/pages/Catalogo';
 
 const ProdutoDetalhe = () => {
   const { id } = useParams<{ id: string }>();
@@ -184,7 +184,7 @@ const ProdutoDetalhe = () => {
                         "data-[state=active]:shadow-none data-[state=active]:bg-transparent"
                       )}
                     >
-                      <Tool className="h-5 w-5" />
+                      <Settings className="h-5 w-5" />
                       Opcionais
                     </TabsTrigger>
                   </TabsList>
