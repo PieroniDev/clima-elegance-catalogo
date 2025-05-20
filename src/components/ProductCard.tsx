@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Check } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import WhatsAppButton from './WhatsAppButton';
+import { Link } from 'react-router-dom';
 
 export interface ProductProps {
   id: string;
@@ -26,9 +27,10 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
   const whatsappMessage = `Olá! Gostaria de obter um orçamento para o climatizador industrial ${product.name}.`;
   
   return (
-    <div 
+    <Link 
+      to={`/produto/${product.id}`}
       className={cn(
-        "bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300",
+        "block bg-white rounded-lg overflow-hidden shadow-md transition-all duration-300",
         "hover:shadow-xl hover:-translate-y-1",
         className
       )}
@@ -67,12 +69,13 @@ const ProductCard = ({ product, className }: ProductCardProps) => {
           <WhatsAppButton 
             message={whatsappMessage} 
             className="w-full justify-center"
+            onClick={(e) => e.preventDefault()}
           >
             Solicitar Orçamento
           </WhatsAppButton>
         </div>
       </div>
-    </div>
+    </Link>
   );
 };
 
