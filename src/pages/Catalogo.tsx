@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Filter, Search, Building, Fan, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -120,7 +119,7 @@ const applicationCategories = [
 const Catalogo = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedLines, setSelectedLines] = useState<string[]>([]);
+  const [selectedLine, setSelectedLine] = useState("");
   const [selectedApplication, setSelectedApplication] = useState("");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
   const [visibleProducts, setVisibleProducts] = useState<ProductProps[]>([]);
@@ -139,9 +138,9 @@ const Catalogo = () => {
       (selectedCategory === "climatizadores" && product.name.toLowerCase().includes("climatizador")) ||
       (selectedCategory === "exaustores" && product.name.toLowerCase().includes("exaustor"));
     
-    // Simulação de filtro por linhas de produto (na prática, você precisaria ter essa informação nos dados do produto)
-    const matchesProductLine = selectedLines.length === 0 || 
-      selectedLines.some(line => product.name.toLowerCase().includes(line));
+    // Simulação de filtro por linha de produto (agora usando radio button com uma única seleção)
+    const matchesProductLine = selectedLine === "" || 
+      product.name.toLowerCase().includes(selectedLine);
     
     // Simulação de filtro por aplicação (empresarial, industrial, etc.)
     const matchesApplication = selectedApplication === "" || 
@@ -171,14 +170,6 @@ const Catalogo = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, [visibleProducts.length, filteredProducts.length]);
-
-  const toggleProductLine = (value: string) => {
-    setSelectedLines(prev => 
-      prev.includes(value) 
-        ? prev.filter(line => line !== value) 
-        : [...prev, value]
-    );
-  };
 
   // Define the keyframes animation styles in the component
   const fadeInAnimationStyle = {
@@ -290,7 +281,7 @@ const Catalogo = () => {
                     {categories.map((category) => (
                       <div key={category.value} className="flex items-center space-x-2 mb-3">
                         <RadioGroupItem id={category.value} value={category.value} />
-                        <Label htmlFor={category.value}>{category.label}</Label>
+                        <Label htmlFor={category.value} className="cursor-pointer">{category.label}</Label>
                       </div>
                     ))}
                   </RadioGroup>
@@ -300,26 +291,25 @@ const Catalogo = () => {
                 
                 <div>
                   <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
-                  <div className="space-y-3">
+                  <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="space-y-4">
+                    <div className="flex items-center space-x-2 mb-3">
+                      <RadioGroupItem id="all-lines" value="" />
+                      <Label htmlFor="all-lines" className="cursor-pointer">Todas as linhas</Label>
+                    </div>
                     {productLines.map((line) => (
-                      <div key={line.value} className="flex items-start">
-                        <Checkbox 
-                          id={line.value} 
-                          checked={selectedLines.includes(line.value)}
-                          onCheckedChange={() => toggleProductLine(line.value)}
-                          className="mt-0.5"
-                        />
-                        <div className="ml-2">
-                          <label htmlFor={line.value} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                      <div key={line.value} className="flex items-center bg-gray-50 p-3 rounded-md hover:bg-gray-100 transition-colors">
+                        <RadioGroupItem id={line.value} value={line.value} className="mr-3" />
+                        <div className="flex justify-between items-center w-full">
+                          <Label htmlFor={line.value} className="cursor-pointer font-medium">
                             {line.label}
-                          </label>
-                          <p className="text-xs text-muted-foreground">
-                            {line.count} produtos
-                          </p>
+                          </Label>
+                          <Badge variant="outline" className="ml-2 bg-primary/10">
+                            {line.count}
+                          </Badge>
                         </div>
                       </div>
                     ))}
-                  </div>
+                  </RadioGroup>
                 </div>
                 
                 <Separator className="my-6" />
@@ -330,7 +320,7 @@ const Catalogo = () => {
                   onClick={() => {
                     setSearchTerm("");
                     setSelectedCategory("all");
-                    setSelectedLines([]);
+                    setSelectedLine("");
                     setSelectedApplication("");
                   }}
                 >
@@ -374,7 +364,7 @@ const Catalogo = () => {
                       {categories.map((category) => (
                         <div key={category.value} className="flex items-center space-x-2 mb-3">
                           <RadioGroupItem id={`mobile-${category.value}`} value={category.value} />
-                          <Label htmlFor={`mobile-${category.value}`}>{category.label}</Label>
+                          <Label htmlFor={`mobile-${category.value}`} className="cursor-pointer">{category.label}</Label>
                         </div>
                       ))}
                     </RadioGroup>
@@ -384,26 +374,25 @@ const Catalogo = () => {
                   
                   <div>
                     <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
-                    <div className="space-y-3">
+                    <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="space-y-3">
+                      <div className="flex items-center space-x-2 mb-3">
+                        <RadioGroupItem id="mobile-all-lines" value="" />
+                        <Label htmlFor="mobile-all-lines" className="cursor-pointer">Todas as linhas</Label>
+                      </div>
                       {productLines.map((line) => (
-                        <div key={line.value} className="flex items-start">
-                          <Checkbox 
-                            id={`mobile-${line.value}`} 
-                            checked={selectedLines.includes(line.value)}
-                            onCheckedChange={() => toggleProductLine(line.value)}
-                            className="mt-0.5"
-                          />
-                          <div className="ml-2">
-                            <label htmlFor={`mobile-${line.value}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                        <div key={line.value} className="flex items-center p-2 rounded-md">
+                          <RadioGroupItem id={`mobile-${line.value}`} value={line.value} className="mr-3" />
+                          <div className="flex justify-between items-center w-full">
+                            <Label htmlFor={`mobile-${line.value}`} className="cursor-pointer">
                               {line.label}
-                            </label>
-                            <p className="text-xs text-muted-foreground">
-                              {line.count} produtos
-                            </p>
+                            </Label>
+                            <Badge variant="outline" className="ml-2 bg-primary/10">
+                              {line.count}
+                            </Badge>
                           </div>
                         </div>
                       ))}
-                    </div>
+                    </RadioGroup>
                   </div>
                   
                   <Separator className="my-6" />
@@ -414,7 +403,7 @@ const Catalogo = () => {
                     onClick={() => {
                       setSearchTerm("");
                       setSelectedCategory("all");
-                      setSelectedLines([]);
+                      setSelectedLine("");
                       setSelectedApplication("");
                     }}
                   >
@@ -439,9 +428,9 @@ const Catalogo = () => {
                     <span className="text-gray-600">
                       {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
                     </span>
-                    {selectedLines.length > 0 && (
-                      <Badge variant="outline" className="ml-2">
-                        {selectedLines.length} {selectedLines.length === 1 ? "linha selecionada" : "linhas selecionadas"}
+                    {selectedLine && (
+                      <Badge variant="outline" className="ml-2 bg-primary/10">
+                        {productLines.find(line => line.value === selectedLine)?.label}
                       </Badge>
                     )}
                   </div>
@@ -472,7 +461,7 @@ const Catalogo = () => {
                       onClick={() => {
                         setSearchTerm("");
                         setSelectedCategory("all");
-                        setSelectedLines([]);
+                        setSelectedLine("");
                         setSelectedApplication("");
                       }}
                     >
