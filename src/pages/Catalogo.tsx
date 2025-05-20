@@ -273,13 +273,13 @@ const Catalogo = () => {
                   </div>
                 </div>
                 
-                <Separator className="my-6" />
+                <Separator className="my-4" />
                 
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-4">Categorias</h3>
-                  <RadioGroup value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <h3 className="text-lg font-bold text-primary mb-3">Categorias</h3>
+                  <RadioGroup value={selectedCategory} onValueChange={setSelectedCategory} className="space-y-1.5">
                     {categories.map((category) => (
-                      <div key={category.value} className="flex items-center space-x-2 mb-3">
+                      <div key={category.value} className="flex items-center space-x-2">
                         <RadioGroupItem id={category.value} value={category.value} />
                         <Label htmlFor={category.value} className="cursor-pointer">{category.label}</Label>
                       </div>
@@ -287,32 +287,41 @@ const Catalogo = () => {
                   </RadioGroup>
                 </div>
                 
-                <Separator className="my-6" />
+                <Separator className="my-4" />
                 
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
-                  <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="space-y-4">
-                    <div className="flex items-center space-x-2 mb-3">
+                  <h3 className="text-lg font-bold text-primary mb-3">Linha de Produtos</h3>
+                  <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="grid gap-2">
+                    <div className="flex items-center space-x-2 mb-1">
                       <RadioGroupItem id="all-lines" value="" />
                       <Label htmlFor="all-lines" className="cursor-pointer">Todas as linhas</Label>
                     </div>
-                    {productLines.map((line) => (
-                      <div key={line.value} className="flex items-center bg-gray-50 p-3 rounded-md hover:bg-gray-100 transition-colors">
-                        <RadioGroupItem id={line.value} value={line.value} className="mr-3" />
-                        <div className="flex justify-between items-center w-full">
-                          <Label htmlFor={line.value} className="cursor-pointer font-medium">
-                            {line.label}
-                          </Label>
-                          <Badge variant="outline" className="ml-2 bg-primary/10">
-                            {line.count}
-                          </Badge>
+                    <div className="grid grid-cols-2 gap-2">
+                      {productLines.map((line) => (
+                        <div 
+                          key={line.value} 
+                          className={`
+                            flex items-center p-2 rounded-md cursor-pointer transition-colors
+                            ${selectedLine === line.value ? 'bg-primary/10 shadow-sm' : 'bg-gray-50 hover:bg-gray-100'}
+                          `}
+                          onClick={() => setSelectedLine(line.value)}
+                        >
+                          <RadioGroupItem id={line.value} value={line.value} className="mr-2" />
+                          <div className="flex justify-between items-center w-full">
+                            <Label htmlFor={line.value} className="cursor-pointer text-sm">
+                              {line.label}
+                            </Label>
+                            <Badge variant="outline" className="ml-1 text-xs bg-primary/5 whitespace-nowrap">
+                              {line.count}
+                            </Badge>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
+                    </div>
                   </RadioGroup>
                 </div>
                 
-                <Separator className="my-6" />
+                <Separator className="my-4" />
                 
                 <Button 
                   variant="outline" 
@@ -342,8 +351,8 @@ const Catalogo = () => {
               
               {mobileFiltersOpen && (
                 <div className="mt-4 bg-white rounded-lg shadow-md p-6">
-                  <div className="mb-6">
-                    <h3 className="text-lg font-bold text-primary mb-4">Buscar Produtos</h3>
+                  <div className="mb-4">
+                    <h3 className="text-lg font-bold text-primary mb-3">Buscar Produtos</h3>
                     <div className="relative">
                       <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
                       <Input
@@ -356,13 +365,13 @@ const Catalogo = () => {
                     </div>
                   </div>
                   
-                  <Separator className="my-6" />
+                  <Separator className="my-4" />
                   
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4">Categorias</h3>
-                    <RadioGroup value={selectedCategory} onValueChange={setSelectedCategory}>
+                    <h3 className="text-lg font-bold text-primary mb-3">Categorias</h3>
+                    <RadioGroup value={selectedCategory} onValueChange={setSelectedCategory} className="space-y-1.5">
                       {categories.map((category) => (
-                        <div key={category.value} className="flex items-center space-x-2 mb-3">
+                        <div key={category.value} className="flex items-center space-x-2">
                           <RadioGroupItem id={`mobile-${category.value}`} value={category.value} />
                           <Label htmlFor={`mobile-${category.value}`} className="cursor-pointer">{category.label}</Label>
                         </div>
@@ -370,32 +379,35 @@ const Catalogo = () => {
                     </RadioGroup>
                   </div>
                   
-                  <Separator className="my-6" />
+                  <Separator className="my-4" />
                   
                   <div>
-                    <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
-                    <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="space-y-3">
-                      <div className="flex items-center space-x-2 mb-3">
-                        <RadioGroupItem id="mobile-all-lines" value="" />
-                        <Label htmlFor="mobile-all-lines" className="cursor-pointer">Todas as linhas</Label>
-                      </div>
+                    <h3 className="text-lg font-bold text-primary mb-3">Linha de Produtos</h3>
+                    <div className="grid grid-cols-2 gap-2">
                       {productLines.map((line) => (
-                        <div key={line.value} className="flex items-center p-2 rounded-md">
-                          <RadioGroupItem id={`mobile-${line.value}`} value={line.value} className="mr-3" />
+                        <div 
+                          key={line.value} 
+                          className={`
+                            flex items-center p-2 rounded-md cursor-pointer transition-colors
+                            ${selectedLine === line.value ? 'bg-primary/10 shadow-sm' : 'bg-gray-50 hover:bg-gray-100'}
+                          `}
+                          onClick={() => setSelectedLine(line.value)}
+                        >
+                          <RadioGroupItem id={`mobile-${line.value}`} value={line.value} className="mr-2" />
                           <div className="flex justify-between items-center w-full">
-                            <Label htmlFor={`mobile-${line.value}`} className="cursor-pointer">
+                            <Label htmlFor={`mobile-${line.value}`} className="cursor-pointer text-sm">
                               {line.label}
                             </Label>
-                            <Badge variant="outline" className="ml-2 bg-primary/10">
+                            <Badge variant="outline" className="ml-1 text-xs bg-primary/5">
                               {line.count}
                             </Badge>
                           </div>
                         </div>
                       ))}
-                    </RadioGroup>
+                    </div>
                   </div>
                   
-                  <Separator className="my-6" />
+                  <Separator className="my-4" />
                   
                   <Button 
                     variant="outline" 
