@@ -1,10 +1,13 @@
-import React, { useState } from 'react';
-import { Filter, Search } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { Filter, Search, Building, Fan, Home } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Separator } from '@/components/ui/separator';
+import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { Badge } from '@/components/ui/badge';
+import { Checkbox } from '@/components/ui/checkbox';
 import SectionTitle from '@/components/SectionTitle';
 import ProductCard, { ProductProps } from '@/components/ProductCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
@@ -85,28 +88,96 @@ export const productData: ProductProps[] = [
   }
 ];
 
+// Novas categorias de produtos
 const categories = [
   { value: "all", label: "Todos os Produtos" },
   { value: "climatizadores", label: "Climatizadores" },
   { value: "exaustores", label: "Exaustores" }
 ];
 
+// Linhas de produtos
+const productLines = [
+  { value: "confort-touch", label: "Confort/Touch", count: 8 },
+  { value: "evolution", label: "Evolution", count: 5 },
+  { value: "exaustor", label: "Exaustor", count: 5 },
+  { value: "portatil", label: "Portátil", count: 7 },
+  { value: "sense", label: "Sense", count: 4 },
+  { value: "siroco", label: "Siroco", count: 5 },
+  { value: "standard", label: "Standard", count: 6 },
+  { value: "teto", label: "Teto", count: 3 },
+  { value: "ventiladores-hvls", label: "Ventiladores HVLS", count: 4 },
+];
+
+// Categorias de aplicação
+const applicationCategories = [
+  { value: "empresarial", label: "Empresarial", icon: Building },
+  { value: "industrial", label: "Industrial", icon: Fan },
+  { value: "portateis", label: "Portáteis", icon: null },
+  { value: "residencial", label: "Residencial", icon: Home },
+];
+
 const Catalogo = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [selectedLines, setSelectedLines] = useState<string[]>([]);
+  const [selectedApplication, setSelectedApplication] = useState("");
   const [mobileFiltersOpen, setMobileFiltersOpen] = useState(false);
+  const [visibleProducts, setVisibleProducts] = useState<ProductProps[]>([]);
+  const [page, setPage] = useState(1);
+  const productsPerPage = 8;
 
+  // Aplicar todos os filtros
   const filteredProducts = productData.filter((product) => {
+    // Filtro de busca por texto
     const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
                          product.description.toLowerCase().includes(searchTerm.toLowerCase());
     
+    // Filtro por categoria principal
     const matchesCategory = 
       selectedCategory === "all" || 
       (selectedCategory === "climatizadores" && product.name.toLowerCase().includes("climatizador")) ||
       (selectedCategory === "exaustores" && product.name.toLowerCase().includes("exaustor"));
     
-    return matchesSearch && matchesCategory;
+    // Simulação de filtro por linhas de produto (na prática, você precisaria ter essa informação nos dados do produto)
+    const matchesProductLine = selectedLines.length === 0 || 
+      selectedLines.some(line => product.name.toLowerCase().includes(line));
+    
+    // Simulação de filtro por aplicação (empresarial, industrial, etc.)
+    const matchesApplication = selectedApplication === "" || 
+      (selectedApplication === "industrial" && product.name.toLowerCase().includes("industrial"));
+    
+    return matchesSearch && matchesCategory && matchesProductLine && matchesApplication;
   });
+
+  // Implementar lazy loading com efeito de animação
+  useEffect(() => {
+    const productsToShow = filteredProducts.slice(0, page * productsPerPage);
+    setVisibleProducts(productsToShow);
+  }, [page, filteredProducts]);
+
+  // Detectar quando o usuário rola até o final da página
+  useEffect(() => {
+    const handleScroll = () => {
+      if (
+        window.innerHeight + document.documentElement.scrollTop >= 
+        document.documentElement.offsetHeight - 500 &&
+        visibleProducts.length < filteredProducts.length
+      ) {
+        setPage(prevPage => prevPage + 1);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [visibleProducts.length, filteredProducts.length]);
+
+  const toggleProductLine = (value: string) => {
+    setSelectedLines(prev => 
+      prev.includes(value) 
+        ? prev.filter(line => line !== value) 
+        : [...prev, value]
+    );
+  };
 
   return (
     <div className="min-h-screen">
@@ -128,6 +199,40 @@ const Catalogo = () => {
             <p className="text-xl md:text-2xl mb-8 text-gray-100">
               Encontre o climatizador ideal para sua empresa
             </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Filtro de aplicação por círculos */}
+      <section className="bg-white py-8 border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col items-center space-y-4">
+            <h2 className="text-xl font-bold text-gray-800">Filtrar por aplicação</h2>
+            
+            <div className="flex flex-wrap justify-center gap-6">
+              {applicationCategories.map((category) => (
+                <div 
+                  key={category.value}
+                  className="flex flex-col items-center"
+                >
+                  <button
+                    onClick={() => setSelectedApplication(
+                      selectedApplication === category.value ? "" : category.value
+                    )}
+                    className={`
+                      w-16 h-16 rounded-full flex items-center justify-center transition-all
+                      ${selectedApplication === category.value 
+                        ? "bg-primary text-white shadow-lg" 
+                        : "bg-gray-100 text-gray-700 hover:bg-gray-200"}
+                    `}
+                  >
+                    {category.icon && <category.icon className="h-8 w-8" />}
+                    {!category.icon && <span className="text-lg font-bold">P</span>}
+                  </button>
+                  <span className="text-sm font-medium mt-2">{category.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -169,12 +274,40 @@ const Catalogo = () => {
                 
                 <Separator className="my-6" />
                 
+                <div>
+                  <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
+                  <div className="space-y-3">
+                    {productLines.map((line) => (
+                      <div key={line.value} className="flex items-start">
+                        <Checkbox 
+                          id={line.value} 
+                          checked={selectedLines.includes(line.value)}
+                          onCheckedChange={() => toggleProductLine(line.value)}
+                          className="mt-0.5"
+                        />
+                        <div className="ml-2">
+                          <label htmlFor={line.value} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                            {line.label}
+                          </label>
+                          <p className="text-xs text-muted-foreground">
+                            {line.count} produtos
+                          </p>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <Separator className="my-6" />
+                
                 <Button 
                   variant="outline" 
                   className="w-full"
                   onClick={() => {
                     setSearchTerm("");
                     setSelectedCategory("all");
+                    setSelectedLines([]);
+                    setSelectedApplication("");
                   }}
                 >
                   Limpar Filtros
@@ -225,12 +358,40 @@ const Catalogo = () => {
                   
                   <Separator className="my-6" />
                   
+                  <div>
+                    <h3 className="text-lg font-bold text-primary mb-4">Linha de Produtos</h3>
+                    <div className="space-y-3">
+                      {productLines.map((line) => (
+                        <div key={line.value} className="flex items-start">
+                          <Checkbox 
+                            id={`mobile-${line.value}`} 
+                            checked={selectedLines.includes(line.value)}
+                            onCheckedChange={() => toggleProductLine(line.value)}
+                            className="mt-0.5"
+                          />
+                          <div className="ml-2">
+                            <label htmlFor={`mobile-${line.value}`} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70">
+                              {line.label}
+                            </label>
+                            <p className="text-xs text-muted-foreground">
+                              {line.count} produtos
+                            </p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  <Separator className="my-6" />
+                  
                   <Button 
                     variant="outline" 
                     className="w-full"
                     onClick={() => {
                       setSearchTerm("");
                       setSelectedCategory("all");
+                      setSelectedLines([]);
+                      setSelectedApplication("");
                     }}
                   >
                     Limpar Filtros
@@ -244,18 +405,38 @@ const Catalogo = () => {
               <div className="flex flex-col gap-6">
                 <div className="flex justify-between items-center">
                   <h2 className="text-2xl font-bold text-primary">
-                    {selectedCategory === "all" ? "Todos os Produtos" : 
-                     selectedCategory === "climatizadores" ? "Climatizadores" : "Exaustores"}
+                    {selectedApplication ? 
+                      applicationCategories.find(c => c.value === selectedApplication)?.label :
+                      selectedCategory === "all" ? "Todos os Produtos" : 
+                      selectedCategory === "climatizadores" ? "Climatizadores" : "Exaustores"
+                    }
                   </h2>
-                  <p className="text-gray-600">
-                    {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
-                  </p>
+                  <div className="flex items-center gap-2">
+                    <span className="text-gray-600">
+                      {filteredProducts.length} {filteredProducts.length === 1 ? "produto encontrado" : "produtos encontrados"}
+                    </span>
+                    {selectedLines.length > 0 && (
+                      <Badge variant="outline" className="ml-2">
+                        {selectedLines.length} {selectedLines.length === 1 ? "linha selecionada" : "linhas selecionadas"}
+                      </Badge>
+                    )}
+                  </div>
                 </div>
                 
                 {filteredProducts.length > 0 ? (
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-6">
-                    {filteredProducts.map((product) => (
-                      <ProductCard key={product.id} product={product} />
+                    {visibleProducts.map((product, index) => (
+                      <div 
+                        key={product.id} 
+                        className="animate-fade-in" 
+                        style={{ 
+                          animationDelay: `${index % productsPerPage * 0.1}s`,
+                          opacity: 0,
+                          animation: "fadeIn 0.5s ease-out forwards" 
+                        }}
+                      >
+                        <ProductCard product={product} />
+                      </div>
                     ))}
                   </div>
                 ) : (
@@ -268,10 +449,18 @@ const Catalogo = () => {
                       onClick={() => {
                         setSearchTerm("");
                         setSelectedCategory("all");
+                        setSelectedLines([]);
+                        setSelectedApplication("");
                       }}
                     >
                       Limpar Filtros
                     </Button>
+                  </div>
+                )}
+                
+                {visibleProducts.length < filteredProducts.length && (
+                  <div className="flex justify-center mt-8">
+                    <div className="loader w-8 h-8 border-4 border-primary border-t-transparent rounded-full animate-spin"></div>
                   </div>
                 )}
               </div>
@@ -295,6 +484,14 @@ const Catalogo = () => {
 
       {/* Floating WhatsApp Button */}
       <WhatsAppButton variant="floating" />
+      
+      {/* Adicionar keyframes para fade-in animation */}
+      <style jsx>{`
+        @keyframes fadeIn {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+      `}</style>
     </div>
   );
 };
