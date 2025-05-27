@@ -19,7 +19,7 @@ const NavBar = () => {
           <div className="flex items-center">
             <Link to="/" className="flex-shrink-0">
               <img 
-                src="/lovable-uploads/5e1aea5c-66ab-4413-85bb-a9a9e2c423d2.png" 
+                src="/lovable-uploads/logo.jpeg" 
                 alt="Guiasul Logo" 
                 className="h-14 w-auto"
               />

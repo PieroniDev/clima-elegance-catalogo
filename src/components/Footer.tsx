@@ -11,9 +11,9 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="/lovable-uploads/5e1aea5c-66ab-4413-85bb-a9a9e2c423d2.png" 
+              src="/lovable-uploads/logo.jpeg" 
               alt="Guiasul Logo" 
-              className="h-12 w-auto mb-4 brightness-0 invert"
+              className="h-12 w-auto mb-4"
             />
             <p className="text-sm mt-4 text-gray-300">
               Especialistas em climatizadores industriais de alta performance.

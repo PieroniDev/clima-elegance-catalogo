@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Filter, Search, Building, Fan, Home } from 'lucide-react';
+import { Filter, Search, Building, Fan, Home, SunSnow } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -14,77 +14,571 @@ import WhatsAppButton from '@/components/WhatsAppButton';
 
 // Dados simulados dos produtos - Exportamos aqui para que outros arquivos possam usar
 export const productData: ProductProps[] = [
+  // 1
   {
     id: "1",
-    name: "Climatizador Industrial GL 60",
+    name: "Roto 160 Evolution",
     description: "Climatizador de grande porte para ambientes industriais, ideal para galpões e fábricas.",
-    image: "https://images.unsplash.com/photo-1621193793262-4127d9855c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "60.000m³/h" },
-      { label: "Área de cobertura", value: "Até 300m²" },
-      { label: "Consumo de energia", value: "1.5kW/h" },
-      { label: "Abertura Parede", value: "1250x1250mm" }
+      { label: "Vazão", value: "57.000m³/h" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Dimensão Externa", value: "1560x1980x1230 mm (ALP)" },
+      { label: "Abertura da Parede", value: "1570x1570mm (AL)" },
+      { label: "Peso", value: "261 Kg (sem água)" }
     ]
   },
+  // 2
   {
     id: "2",
-    name: "Climatizador Industrial GL 50",
+    name: "Roto 140 Evolution",
     description: "Solução intermediária para médias indústrias e ambientes comerciais de grande porte.",
-    image: "https://images.unsplash.com/photo-1580983218765-f663bec07b37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "50.000m³/h" },
-      { label: "Área de cobertura", value: "Até 250m²" },
-      { label: "Consumo de energia", value: "1.2kW/h" },
-      { label: "Abertura Parede", value: "1200x1200mm" }
+      { label: "Vazão", value: "57.000m³/h" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Dimensão Externa", value: "1560x1980x1230 mm (ALP)" },
+      { label: "Abertura da Parede", value: "1570x1570mm (AL)" },
+      { label: "Peso", value: "261 Kg (sem água)" }
     ]
   },
+  // 3
   {
     id: "3",
-    name: "Climatizador Industrial GL 40",
+    name: "Roto 100 Evolution",
     description: "Modelo compacto para pequenas indústrias, comércios e espaços corporativos.",
-    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "40.000m³/h" },
-      { label: "Área de cobertura", value: "Até 200m²" },
-      { label: "Consumo de energia", value: "1.1kW/h" },
-      { label: "Abertura Parede", value: "1000x1000mm" }
+      { label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }
     ]
   },
+  // 4
   {
     id: "4",
-    name: "Exaustor GL 36",
+    name: "Roto 95 Evolution",
     description: "Sistema de exaustão profissional para ambientes industriais que necessitam de renovação constante de ar.",
-    image: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "36.000m³/h" },
-      { label: "Abertura Parede", value: "1200x1200mm" },
-      { label: "Consumo de energia", value: "1.1kW" },
-      { label: "Alimentação", value: "220V" }
+      { label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }
     ]
   },
+  // 5
   {
     id: "5",
-    name: "Exaustor GL 25",
+    name: "Roto 80 Evolution",
     description: "Exaustor de médio porte ideal para cozinhas industriais, restaurantes e áreas de produção.",
-    image: "https://images.unsplash.com/photo-1605117882932-f9e32b03fea9?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "25.000m³/h" },
-      { label: "Abertura Parede", value: "1000x1000mm" },
-      { label: "Consumo de energia", value: "0.87kW/h" },
-      { label: "Alimentação", value: "220V" }
+      { label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }
     ]
   },
+  // 6
   {
     id: "6",
-    name: "Exaustor GL 15",
+    name: "Roto 180 Confort/Touch",
     description: "Solução compacta para pequenos ambientes comerciais que necessitam de renovação de ar.",
-    image: "https://images.unsplash.com/photo-1535350356005-fd52b3b524fb?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    image: "",
     features: [
-      { label: "Vazão", value: "15.000m³/h" },
-      { label: "Abertura Parede", value: "820x820mm" },
-      { label: "Consumo de energia", value: "0.67kW/h" },
-      { label: "Alimentação", value: "220V" }
+      { label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }
     ]
+  },
+  // 7
+  {
+    id: "7",
+    name: "Roto 170 Confort/Touch",
+    description: "Descrição do produto 7.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 8
+  {
+    id: "8",
+    name: "Roto 160 Confort/Touch",
+    description: "Descrição do produto 8.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 9
+  {
+    id: "9",
+    name: "Roto 140 Confort/Touch",
+    description: "Descrição do produto 9.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 10
+  {
+    id: "10",
+    name: "Roto 100 Confort/Touch",
+    description: "Descrição do produto 10.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 11
+  {
+    id: "11",
+    name: "Roto 95 Confort/Touch",
+    description: "Descrição do produto 11.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 12
+  {
+    id: "12",
+    name: "Roto 80 Touch",
+    description: "Descrição do produto 12.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 13
+  {
+    id: "13",
+    name: "Roto 70 Touch",
+    description: "Descrição do produto 13.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 14
+  {
+    id: "14",
+    name: "Roto 170 Standard",
+    description: "Descrição do produto 14.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 15
+  {
+    id: "15",
+    name: "Roto 160 Standard",
+    description: "Descrição do produto 15.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 16
+  {
+    id: "16",
+    name: "Roto 140 Standard",
+    description: "Descrição do produto 16.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 17
+  {
+    id: "17",
+    name: "Roto 100 Standard",
+    description: "Descrição do produto 17.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 18
+  {
+    id: "18",
+    name: "Roto 95 Standard",
+    description: "Descrição do produto 18.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 19
+  {
+    id: "19",
+    name: "Roto 80 Standard",
+    description: "Descrição do produto 19.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 20
+  {
+    id: "20",
+    name: "Central 200 Evaporativa",
+    description: "Descrição do produto 20.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 21
+  {
+    id: "21",
+    name: "Roto 155 Siroco",
+    description: "Descrição do produto 21.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 22
+  {
+    id: "22",
+    name: "Roto 115 Siroco",
+    description: "Descrição do produto 22.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 23
+  {
+    id: "23",
+    name: "Roto 85 Siroco",
+    description: "Descrição do produto 23.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 24
+  {
+    id: "24",
+    name: "Roto 25 Siroco",
+    description: "Descrição do produto 24.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 25
+  {
+    id: "25",
+    name: "Roto 150 Teto",
+    description: "Descrição do produto 25.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 26
+  {
+    id: "26",
+    name: "Roto 100 Teto",
+    description: "Descrição do produto 26.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 27
+  {
+    id: "27",
+    name: "Roto 90 Teto",
+    description: "Descrição do produto 27.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 28
+  {
+    id: "28",
+    name: "Exaustor 160",
+    description: "Descrição do produto 28.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 29
+  {
+    id: "29",
+    name: "Exaustor 140",
+    description: "Descrição do produto 29.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 30
+  {
+    id: "30",
+    name: "Exaustor 100",
+    description: "Descrição do produto 30.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 31
+  {
+    id: "31",
+    name: "Exaustor 80",
+    description: "Descrição do produto 31.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 32
+  {
+    id: "32",
+    name: "Exaustor 54",
+    description: "Descrição do produto 32.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 33
+  {
+    id: "33",
+    name: "Roto 65 Sense",
+    description: "Descrição do produto 33.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 34
+  {
+    id: "34",
+    name: "Roto 60 Sense",
+    description: "Descrição do produto 34.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 35
+  {
+    id: "35",
+    name: "Roto 30 Sense",
+    description: "Descrição do produto 35.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 36
+  {
+    id: "36",
+    name: "Exaustor 60 Sense",
+    description: "Descrição do produto 36.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 37
+  {
+    id: "37",
+    name: "Roto 58 Portátil",
+    description: "Descrição do produto 37.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 38
+  {
+    id: "38",
+    name: "Roto 55 Portátil Alongado", 
+    description: "Descrição do produto 38.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 39
+  {
+    id: "39",
+    name: "Roto 55 Portátil",
+    description: "Descrição do produto 39.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 40
+  {
+    id: "40",
+    name: "Roto 52 Portátil",
+    description: "Descrição do produto 40.",
+    image: "",
+    features: [{ label: "Vazão", value: "" },
+      { label: "Tensão", value: "" },
+      { label: "Dimensão Externa", value: "" },
+      { label: "Abertura da Parede", value: "" },
+      { label: "Peso", value: "" }]
+  },
+  // 41
+  {
+    id: "41",
+    name: "Roto 49 Portátil",
+    description: "Descrição do produto 42.",
+    image: "",
+    features: [{ label: "Vazão", value: "14.000 m³/h" },
+      { label: "Tensão", value: "M/F 220V" },
+      { label: "Dimensão Externa", value: "1960x680x420mm (ALP)" },
+      { label: "Peso", value: "35 Kg (sem água)" }]
+  },
+  {
+    id: "42",
+    name: "Roto 46 Portátil",
+    description: "Descrição do produto 43.",
+    image: "",
+    features: [{ label: "Vazão", value: "7.000 m³/h" },
+      { label: "Tensão", value: "M/F 127v | 220v" },
+      { label: "Consumo de Energia", value: " 0,320 Kwh" },
+      { label: "Dimensão Externa", value: "1930x680x420mm (ALP)" },
+      { label: "Peso", value: "20 Kg (sem água)" }]
+  },
+  {
+    id: "43",
+    name: "Roto 44 Portátil",
+    description: "Descrição do produto 44.",
+    image: "",
+    features: [{ label: "Vazão", value: "7.000 m³/h" },
+      { label: "Tensão", value: "M/F 127v | 220v" },
+      { label: "Consumo de Energia", value: " 0,320 Kwh" },
+      { label: "Dimensão Externa", value: "1930x680x420mm (ALP)" },
+      { label: "Peso", value: "20 Kg (sem água)" }]
+  },
+  {
+    id: "44",
+    name: "Ventilador HVLS 7000",
+    description: "Descrição do produto 42.",
+    image: "",
+    features: [{ label: "Vazão", value: "430.000m³/h" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Consumo de Energia", value: " 1,5 Kwh" },
+      { label: "Dimensão Externa", value: "Altura: 900mm | Diâmetro: 7000 mm" },
+      { label: "Peso", value: "250 Kg" }]
+  },{
+    id: "45",
+    name: "Ventilador HVLS 5000",
+    description: "Descrição do produto 43.",
+    image: "",
+    features: [{ label: "Vazão", value: "280000" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Consumo de Energia", value: " 1,1 Kwh" },
+      { label: "Dimensão Externa", value: "Altura: 900mm | Diâmetro: 5315 mm" },
+      { label: "Peso", value: "200 Kg" }]
+  },{
+    id: "46",
+    name: "Vetilador HVLS 3000",
+    description: "Descrição do produto 44.",
+    image: "",
+    features: [{ label: "Vazão", value: "120.000 m³/h" },
+      { label: "Tensão", value: "M/F 120v " },
+      { label: "Consumo de Energia", value: "0.75kWh" },
+      { label: "Dimensão Externa", value: "Altura: 760mm | Diâmetro: 3.370mm " },
+      { label: "Peso", value: "150 Kg" }]
+  },{
+    id: "47",
+    name: "Ventilador HVLS 2500",
+    description: "Descrição do produto 47.",
+    image: "",
+    features: [{ label: "Vazão", value: " 170.000 m³/h" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Consumo de Energia", value: "0.75 kWh" },
+      { label: "Dimensão Externa", value: " Altura: 760mm | Diâmetro: 3.370mm" },
+      { label: "Peso", value: "150 Kg" }]
   }
 ];
 
@@ -112,7 +606,7 @@ const productLines = [
 const applicationCategories = [
   { value: "empresarial", label: "Empresarial", icon: Building },
   { value: "industrial", label: "Industrial", icon: Fan },
-  { value: "portateis", label: "Portáteis", icon: null },
+  { value: "portateis", label: "Portáteis", icon: SunSnow },
   { value: "residencial", label: "Residencial", icon: Home },
 ];
 
@@ -290,36 +784,46 @@ const Catalogo = () => {
                 <Separator className="my-4" />
                 
                 <div>
-                  <h3 className="text-lg font-bold text-primary mb-3">Linha de Produtos</h3>
-                  <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="grid gap-2">
-                    <div className="flex items-center space-x-2 mb-1">
-                      <RadioGroupItem id="all-lines" value="" />
-                      <Label htmlFor="all-lines" className="cursor-pointer">Todas as linhas</Label>
-                    </div>
-                    <div className="grid grid-cols-2 gap-2">
-                      {productLines.map((line) => (
-                        <div 
-                          key={line.value} 
-                          className={`
-                            flex items-center p-2 rounded-md cursor-pointer transition-colors
-                            ${selectedLine === line.value ? 'bg-primary/10 shadow-sm' : 'bg-gray-50 hover:bg-gray-100'}
-                          `}
-                          onClick={() => setSelectedLine(line.value)}
-                        >
-                          <RadioGroupItem id={line.value} value={line.value} className="mr-2" />
-                          <div className="flex justify-between items-center w-full">
-                            <Label htmlFor={line.value} className="cursor-pointer text-sm">
-                              {line.label}
-                            </Label>
-                            <Badge variant="outline" className="ml-1 text-xs bg-primary/5 whitespace-nowrap">
-                              {line.count}
-                            </Badge>
-                          </div>
-                        </div>
-                      ))}
-                    </div>
-                  </RadioGroup>
-                </div>
+  <h3 className="text-lg font-bold text-primary mb-3">Linha de Produtos</h3>
+  <RadioGroup value={selectedLine} onValueChange={setSelectedLine} className="grid gap-2">
+    
+    {/* Todas as linhas */}
+    <div className="flex items-center space-x-2 mb-1">
+      <RadioGroupItem id="all-lines" value="" />
+      <Label htmlFor="all-lines" className="cursor-pointer">Todas as linhas</Label>
+    </div>
+
+    {/* Grid das opções */}
+    <div className="grid grid-cols-2 gap-2">
+      {productLines.map((line, index) => {
+        const isLastOdd = index === productLines.length - 1 && productLines.length % 2 === 1;
+
+        return (
+          <div 
+            key={line.value} 
+            className={`
+              flex items-center p-2 rounded-md cursor-pointer transition-colors
+              ${selectedLine === line.value ? 'bg-primary/10 shadow-sm' : 'bg-gray-50 hover:bg-gray-100'}
+              ${isLastOdd ? 'col-span-2' : ''}
+            `}
+            onClick={() => setSelectedLine(line.value)}
+          >
+            <RadioGroupItem id={line.value} value={line.value} className="mr-2" />
+            <div className="flex justify-between items-center w-full">
+              <Label htmlFor={line.value} className="cursor-pointer text-sm">
+                {line.label}
+              </Label>
+              <Badge variant="outline" className="ml-1 text-xs bg-primary/5 whitespace-nowrap">
+                {line.count}
+              </Badge>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </RadioGroup>
+</div>
+
                 
                 <Separator className="my-4" />
                 
