@@ -1,6 +1,6 @@
 
 import { cn } from "@/lib/utils";
-import { AnimatePresence, motion } from "motion";
+import { m, LazyMotion, domAnimation } from 'motion';
 import { useState } from "react";
 
 export const HoverEffect = ({
@@ -17,22 +17,22 @@ export const HoverEffect = ({
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
-    <div
-      className={cn(
-        "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
-        className
-      )}
-    >
-      {items.map((item, idx) => (
-        <div
-          key={item?.link}
-          className="relative group  block p-2 h-full w-full"
-          onMouseEnter={() => setHoveredIndex(idx)}
-          onMouseLeave={() => setHoveredIndex(null)}
-        >
-          <AnimatePresence>
+    <LazyMotion features={domAnimation}>
+      <div
+        className={cn(
+          "grid grid-cols-1 md:grid-cols-2  lg:grid-cols-3  py-10",
+          className
+        )}
+      >
+        {items.map((item, idx) => (
+          <div
+            key={item?.link}
+            className="relative group  block p-2 h-full w-full"
+            onMouseEnter={() => setHoveredIndex(idx)}
+            onMouseLeave={() => setHoveredIndex(null)}
+          >
             {hoveredIndex === idx && (
-              <motion.span
+              <m.span
                 className="absolute inset-0 h-full w-full bg-neutral-200 dark:bg-slate-800/[0.8] block  rounded-3xl"
                 layoutId="hoverBackground"
                 initial={{ opacity: 0 }}
@@ -46,14 +46,14 @@ export const HoverEffect = ({
                 }}
               />
             )}
-          </AnimatePresence>
-          <Card>
-            <CardTitle>{item.title}</CardTitle>
-            <CardDescription>{item.description}</CardDescription>
-          </Card>
-        </div>
-      ))}
-    </div>
+            <Card>
+              <CardTitle>{item.title}</CardTitle>
+              <CardDescription>{item.description}</CardDescription>
+            </Card>
+          </div>
+        ))}
+      </div>
+    </LazyMotion>
   );
 };
 
@@ -77,6 +77,7 @@ export const Card = ({
     </div>
   );
 };
+
 export const CardTitle = ({
   className,
   children,
@@ -90,6 +91,7 @@ export const CardTitle = ({
     </h4>
   );
 };
+
 export const CardDescription = ({
   className,
   children,
