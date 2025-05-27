@@ -10,6 +10,7 @@ import { Badge } from '@/components/ui/badge';
 import { Checkbox } from '@/components/ui/checkbox';
 import SectionTitle from '@/components/SectionTitle';
 import ProductCard, { ProductProps } from '@/components/ProductCard';
+import AnimatedProductCard from '@/components/AnimatedProductCard';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 // Dados simulados dos produtos - Exportamos aqui para que outros arquivos possam usar
@@ -963,7 +964,7 @@ const Catalogo = () => {
                           animationDelay: `${index % productsPerPage * 0.1}s` 
                         }}
                       >
-                        <ProductCard product={product} />
+                        <AnimatedProductCard product={product} />
                       </div>
                     ))}
                   </div>
