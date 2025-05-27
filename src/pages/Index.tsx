@@ -1,3 +1,4 @@
+
 import React from "react";
 import { ArrowRight, Wind, Fan, Factory } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -56,34 +57,70 @@ const featuredProducts: ProductProps[] = [
 const Index = () => {
   return (
     <div className="min-h-screen">
-      {/* Hero Section */}
-      
-      <section className="relative bg-primary text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary to-primary/90 z-0" />
-        
+      {/* Hero Section with Aceternity Background */}
+      <section className="relative overflow-hidden">
+        <BackgroundGradientAnimation
+          gradientBackgroundStart="rgb(30, 64, 175)"
+          gradientBackgroundEnd="rgb(37, 99, 235)"
+          firstColor="59, 130, 246"
+          secondColor="96, 165, 250"
+          thirdColor="147, 197, 253"
+          fourthColor="191, 219, 254"
+          fifthColor="219, 234, 254"
+          pointerColor="59, 130, 246"
+          size="90%"
+          blendingValue="multiply"
+          interactive={true}
+          containerClassName="absolute inset-0"
+          className="absolute inset-0"
+        >
+          <div className="absolute inset-0 bg-primary/30 backdrop-blur-[1px]" />
+        </BackgroundGradientAnimation>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 lg:py-40 relative z-10">
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fade-in">
+            <div className="flex items-center gap-3 mb-6 animate-fade-in">
+              <Wind className="h-8 w-8 text-white animate-pulse" />
+              <div className="h-px bg-white/30 flex-1" />
+            </div>
+            
+            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6 animate-fade-in text-white">
               Climatizadores Industriais de Alto Desempenho
             </h1>
+            
             <p
-              className="text-xl md:text-2xl mb-8 text-gray-100 animate-fade-in"
+              className="text-xl md:text-2xl mb-8 text-white/90 animate-fade-in"
               style={{ animationDelay: "0.2s" }}
             >
               Soluções avançadas para climatização de grandes ambientes com até
               80% de economia de energia.
             </p>
+            
             <div
               className="flex flex-col sm:flex-row gap-4 animate-fade-in"
               style={{ animationDelay: "0.4s" }}
             >
-              <Button asChild size="lg" className="btn-secondary">
+              <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold">
                 <Link to="/catalogo">Conheça Nossos Produtos</Link>
               </Button>
-              <WhatsAppButton className="sm:max-w-fit">
+              <WhatsAppButton className="sm:max-w-fit bg-secondary hover:bg-secondary/90">
                 Solicitar Orçamento
               </WhatsAppButton>
+            </div>
+
+            <div className="flex items-center gap-6 mt-8 text-white/80 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+              <div className="flex items-center gap-2">
+                <Fan className="h-5 w-5" />
+                <span className="text-sm">Alta Performance</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Factory className="h-5 w-5" />
+                <span className="text-sm">Soluções Customizadas</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Wind className="h-5 w-5" />
+                <span className="text-sm">Economia de Energia</span>
+              </div>
             </div>
           </div>
         </div>

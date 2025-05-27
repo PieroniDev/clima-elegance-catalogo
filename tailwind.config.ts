@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -134,6 +133,93 @@ export default {
     					transform: 'translateY(0)',
     					opacity: '1'
     				}
+    			},
+    			'first': {
+    				'0%': {
+    					transform: 'rotate(0deg) translateX(0px)'
+    				},
+    				'33%': {
+    					transform: 'rotate(120deg) translateX(50px)'
+    				},
+    				'66%': {
+    					transform: 'rotate(240deg) translateX(-20px)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translateX(0px)'
+    				}
+    			},
+    			'second': {
+    				'0%': {
+    					transform: 'rotate(0deg) translateX(0px) scale(1)'
+    				},
+    				'25%': {
+    					transform: 'rotate(90deg) translateX(-30px) scale(1.1)'
+    				},
+    				'50%': {
+    					transform: 'rotate(180deg) translateX(40px) scale(0.9)'
+    				},
+    				'75%': {
+    					transform: 'rotate(270deg) translateX(-10px) scale(1.05)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translateX(0px) scale(1)'
+    				}
+    			},
+    			'third': {
+    				'0%': {
+    					transform: 'rotate(0deg) translateY(0px)'
+    				},
+    				'40%': {
+    					transform: 'rotate(144deg) translateY(-25px)'
+    				},
+    				'80%': {
+    					transform: 'rotate(288deg) translateY(15px)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translateY(0px)'
+    				}
+    			},
+    			'fourth': {
+    				'0%': {
+    					transform: 'rotate(0deg) translate(0px, 0px)'
+    				},
+    				'20%': {
+    					transform: 'rotate(72deg) translate(20px, -15px)'
+    				},
+    				'40%': {
+    					transform: 'rotate(144deg) translate(-10px, 25px)'
+    				},
+    				'60%': {
+    					transform: 'rotate(216deg) translate(-25px, -10px)'
+    				},
+    				'80%': {
+    					transform: 'rotate(288deg) translate(15px, 20px)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translate(0px, 0px)'
+    				}
+    			},
+    			'fifth': {
+    				'0%': {
+    					transform: 'rotate(0deg) translateX(0px) translateY(0px)'
+    				},
+    				'30%': {
+    					transform: 'rotate(108deg) translateX(-40px) translateY(20px)'
+    				},
+    				'60%': {
+    					transform: 'rotate(216deg) translateX(30px) translateY(-30px)'
+    				},
+    				'100%': {
+    					transform: 'rotate(360deg) translateX(0px) translateY(0px)'
+    				}
+    			},
+    			'aurora': {
+    				'0%': {
+    					backgroundPosition: '50% 50%, 50% 50%'
+    				},
+    				'100%': {
+    					backgroundPosition: '350% 50%, 350% 50%'
+    				}
     			}
     		},
     		animation: {
@@ -141,7 +227,13 @@ export default {
     			'accordion-up': 'accordion-up 0.2s ease-out',
     			'fade-in': 'fade-in 0.4s ease-out',
     			'slide-in': 'slide-in 0.5s ease-out',
-    			'slide-up': 'slide-up 0.5s ease-out'
+    			'slide-up': 'slide-up 0.5s ease-out',
+    			'first': 'first 8s linear infinite',
+    			'second': 'second 10s linear infinite',
+    			'third': 'third 12s linear infinite',
+    			'fourth': 'fourth 9s linear infinite',
+    			'fifth': 'fifth 11s linear infinite',
+    			'aurora': 'aurora 60s linear infinite'
     		}
     	}
     },
