@@ -26,8 +26,8 @@ const OwnerProfile = () => {
           
           {/* Owner Info */}
           <div className="flex-1 text-center lg:text-left">
-            <h3 className="text-2xl font-bold text-primary mb-2">João Silva</h3>
-            <p className="text-lg text-secondary font-medium mb-4">Fundador & CEO da Clima Elegance</p>
+            <h3 className="text-2xl font-bold text-primary mb-2">Guilherme Leite</h3>
+            <p className="text-md text-primary font-small mb-4">Dono da Guiasul, e Representante Oficial da Rotoplast em Minas Gerais</p>
             
             <p className="text-gray-600 mb-6 leading-relaxed">
               Com mais de 15 anos de experiência no setor de climatização industrial, 
