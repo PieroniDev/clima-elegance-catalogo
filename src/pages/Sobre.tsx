@@ -43,22 +43,22 @@ const testimonials = [
 const differentialCards = [
   {
     title: "Tecnologia Avançada",
-    description: "Componentes de última geração com sistemas de controle inteligente",
+    description: "Componentes de última geração",
     image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     title: "Produção Nacional",
-    description: "Fabricação própria com rigoroso controle de qualidade",
+    description: "Fabricação própria com qualidade",
     image: "https://images.unsplash.com/photo-1581093196277-9f6e9b96cc00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     title: "Soluções Personalizadas",
-    description: "Projetos sob medida para cada necessidade específica",
+    description: "Projetos sob medida",
     image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   },
   {
     title: "Suporte Especializado",
-    description: "Equipe qualificada para consultoria e manutenção",
+    description: "Equipe qualificada",
     image: "https://images.unsplash.com/photo-1621193793262-4127d9855c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
@@ -188,22 +188,22 @@ const Sobre = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-12">
             <ValueCard
-              icon={<CheckCircle className="h-12 w-12" />}
+              icon={<CheckCircle className="h-12 w-12 text-blue-600" />}
               title="Qualidade"
               description="Compromisso com a excelência em todos os nossos produtos e serviços, utilizando materiais de primeira linha e processos rigorosos de controle de qualidade."
             />
             <ValueCard
-              icon={<Award className="h-12 w-12" />}
+              icon={<Award className="h-12 w-12 text-blue-600" />}
               title="Inovação"
               description="Busca constante por novas tecnologias e soluções que possam melhorar a eficiência e performance dos nossos climatizadores."
             />
             <ValueCard
-              icon={<Shield className="h-12 w-12" />}
+              icon={<Shield className="h-12 w-12 text-blue-600" />}
               title="Sustentabilidade"
               description="Desenvolvimento de produtos que minimizam o impacto ambiental e contribuem para a redução do consumo de energia."
             />
             <ValueCard
-              icon={<Users className="h-12 w-12" />}
+              icon={<Users className="h-12 w-12 text-blue-600" />}
               title="Atendimento"
               description="Foco total na satisfação do cliente, oferecendo suporte técnico especializado e atendimento personalizado em todas as etapas."
             />
@@ -219,8 +219,62 @@ const Sobre = () => {
             subtitle="O que nos torna a escolha ideal para sua empresa"
           />
 
-          <div className="mt-16">
-            <DragCards cards={differentialCards} />
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mt-16">
+            {/* Draggable Cards */}
+            <div className="relative">
+              <div className="absolute -top-4 -left-4 w-72 h-72 bg-secondary/30 rounded-full filter blur-3xl opacity-70" />
+              <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-primary/30 rounded-full filter blur-3xl opacity-70" />
+              <div className="relative z-10">
+                <DragCards cards={differentialCards} />
+              </div>
+            </div>
+
+            {/* Content */}
+            <div>
+              <div className="prose prose-lg max-w-none text-gray-600">
+                <h3 className="text-2xl font-bold text-primary mb-4">
+                  Por que escolher a Guiasul?
+                </h3>
+                <p className="mb-6">
+                  Nossa empresa se destaca no mercado de climatização industrial através de 
+                  diferenciais únicos que agregam valor real aos nossos clientes e parceiros.
+                </p>
+                
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <CheckCircle className="h-6 w-6 text-blue-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-primary">Tecnologia Avançada</h4>
+                      <p className="text-gray-600">Componentes de última geração com sistemas de controle inteligente</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <Award className="h-6 w-6 text-blue-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-primary">Produção Nacional</h4>
+                      <p className="text-gray-600">Fabricação própria com rigoroso controle de qualidade</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <Shield className="h-6 w-6 text-blue-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-primary">Soluções Personalizadas</h4>
+                      <p className="text-gray-600">Projetos sob medida para cada necessidade específica</p>
+                    </div>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <Users className="h-6 w-6 text-blue-600 mt-1" />
+                    <div>
+                      <h4 className="font-semibold text-primary">Suporte Especializado</h4>
+                      <p className="text-gray-600">Equipe qualificada para consultoria e manutenção</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -256,7 +310,7 @@ interface ValueCardProps {
 const ValueCard = ({ icon, title, description }: ValueCardProps) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center">
-      <div className="mb-4 text-blue-600 inline-flex items-center justify-center">
+      <div className="mb-4 inline-flex items-center justify-center">
         {icon}
       </div>
       <h3 className="text-xl font-bold mb-3 text-primary">
