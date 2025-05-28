@@ -8,6 +8,7 @@ import SectionTitle from "@/components/SectionTitle";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ProductCard, { ProductProps } from "@/components/ProductCard";
 import { BackgroundGradientAnimation } from "../components/ui/background-gradient-animation";
+import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 
 const featuredProducts: ProductProps[] = [
   {
@@ -52,6 +53,60 @@ const featuredProducts: ProductProps[] = [
       { label: "Abertura Parede", value: "950x950mm" }
     ]
   }
+];
+
+const carouselCards = [
+  {
+    src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    title: "Indústrias de Grande Porte",
+    category: "Climatização Industrial",
+    content: (
+      <div>
+        <p className="text-gray-600 mb-4">
+          Soluções especializadas para indústrias de grande porte, garantindo ambiente climatizado 
+          e confortável para os trabalhadores.
+        </p>
+        <p className="text-gray-600">
+          Nossos climatizadores são projetados para atender grandes volumes de ar e 
+          proporcionar eficiência energética máxima.
+        </p>
+      </div>
+    ),
+  },
+  {
+    src: "https://images.unsplash.com/photo-1581093196277-9f6e9b96cc00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    title: "Centros Logísticos",
+    category: "Armazéns e Galpões",
+    content: (
+      <div>
+        <p className="text-gray-600 mb-4">
+          Climatização eficiente para centros de distribuição e armazéns, 
+          mantendo produtos e funcionários em condições ideais.
+        </p>
+        <p className="text-gray-600">
+          Sistemas que garantem a conservação adequada de mercadorias e 
+          o bem-estar da equipe de trabalho.
+        </p>
+      </div>
+    ),
+  },
+  {
+    src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    title: "Fábricas Modernas",
+    category: "Tecnologia Avançada",
+    content: (
+      <div>
+        <p className="text-gray-600 mb-4">
+          Equipamentos de última geração para fábricas que buscam 
+          excelência em climatização industrial.
+        </p>
+        <p className="text-gray-600">
+          Controle inteligente de temperatura e umidade para 
+          processos produtivos que exigem precisão.
+        </p>
+      </div>
+    ),
+  },
 ];
 
 const Index = () => {
@@ -161,14 +216,10 @@ const Index = () => {
               </Button>
             </div>
             <div className="lg:order-1 flex justify-center animate-slide-in">
-              <div className="relative w-full max-w-lg">
-                <div className="absolute -top-4 -left-4 w-72 h-72 bg-secondary/20 rounded-full filter blur-3xl opacity-70" />
-                <div className="absolute -bottom-4 -right-4 w-72 h-72 bg-primary/20 rounded-full filter blur-3xl opacity-70" />
-                <img
-                  src="https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                  alt="Interior de indústria com climatização"
-                  className="relative rounded-lg shadow-xl object-cover h-[450px] w-full"
-                />
+              <div className="w-full">
+                <Carousel items={carouselCards.map((card, index) => (
+                  <Card key={index} card={card} index={index} />
+                ))} />
               </div>
             </div>
           </div>

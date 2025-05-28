@@ -21,7 +21,7 @@ const OwnerProfile = () => {
             {/* Info */}
             <div className="text-center md:text-left flex-1">
               <h3 className="text-2xl font-bold text-gray-900 mb-1">
-                Guilherme Leite
+                Guilherme Leite de Andrade
               </h3>
               <p className="text-primary font-medium mb-2">
                 Dono da Guiasul & Representante Oficial Rotoplast - MG
@@ -44,7 +44,7 @@ const OwnerProfile = () => {
         <div className="p-8">
           <p className="text-gray-600 leading-relaxed mb-8">
             Com mais de 15 anos de experiência no setor de climatização industrial, 
-            Guilherme fundou a Guiasul com a missão de revolucionar o mercado brasileiro 
+            Guilherme Leite de Andrade fundou a Guiasul com a missão de revolucionar o mercado brasileiro 
             através de soluções inovadoras e sustentáveis em climatização.
           </p>
           
@@ -79,7 +79,7 @@ const OwnerProfile = () => {
               atendem às necessidades dos nossos clientes, mas superam suas expectativas, 
               sempre com foco na sustentabilidade e inovação."
             </blockquote>
-            <cite className="text-primary font-medium">— Guilherme Leite, Fundador</cite>
+            <cite className="text-primary font-medium">— Guilherme Leite de Andrade, Fundador</cite>
           </div>
         </div>
       </div>

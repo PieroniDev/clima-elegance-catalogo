@@ -1,9 +1,11 @@
+
 import React from "react";
 import { CheckCircle, Award, Shield, Users, Star, Quote } from "lucide-react";
 import SectionTitle from "@/components/SectionTitle";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import OwnerProfile from "@/components/OwnerProfile";
 import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import { DragCards } from "@/components/ui/draggable-card";
 
 const testimonials = [
   {
@@ -35,6 +37,29 @@ const testimonials = [
       "Tecnologia de ponta e suporte técnico excepcional. Já são 3 anos de funcionamento perfeito sem nenhum problema.",
     name: "Pedro Oliveira",
     title: "Engenheiro Chefe - Siderúrgica Nacional"
+  }
+];
+
+const differentialCards = [
+  {
+    title: "Tecnologia Avançada",
+    description: "Componentes de última geração com sistemas de controle inteligente",
+    image: "https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    title: "Produção Nacional",
+    description: "Fabricação própria com rigoroso controle de qualidade",
+    image: "https://images.unsplash.com/photo-1581093196277-9f6e9b96cc00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    title: "Soluções Personalizadas",
+    description: "Projetos sob medida para cada necessidade específica",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+  },
+  {
+    title: "Suporte Especializado",
+    description: "Equipe qualificada para consultoria e manutenção",
+    image: "https://images.unsplash.com/photo-1621193793262-4127d9855c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
   }
 ];
 
@@ -87,7 +112,7 @@ const Sobre = () => {
                 </p>
                 <br />
                 <p>
-                  Sob a liderança de <b>Guilherme Leite, fundador e 
+                  Sob a liderança de <b>Guilherme Leite de Andrade, fundador e 
                     representante
                     da Rotoplast em MG
                   </b>, nossa empresa se destaca por seu
@@ -194,62 +219,8 @@ const Sobre = () => {
             subtitle="O que nos torna a escolha ideal para sua empresa"
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mt-16">
-            <div className="order-2 lg:order-1">
-              <img
-                src="https://images.unsplash.com/photo-1581093196277-9f6e9b96cc00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
-                alt="Fábrica Guiasul"
-                className="rounded-lg shadow-xl w-full h-[400px] object-cover"
-              />
-            </div>
-            <div className="order-1 lg:order-2">
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
-                    Tecnologia Avançada
-                  </h3>
-                  <p className="text-gray-600">
-                    Nossos climatizadores são equipados com componentes de
-                    última geração, garantindo maior eficiência e durabilidade.
-                    Utilizamos sistemas de controle inteligente que otimizam o
-                    funcionamento de acordo com as condições do ambiente.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
-                    Produção Nacional
-                  </h3>
-                  <p className="text-gray-600">
-                    Todos os nossos produtos são fabricados em nossa planta
-                    industrial no Brasil, o que nos permite manter um rigoroso
-                    controle de qualidade e oferecer assistência técnica rápida
-                    e eficiente em todo o território nacional.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
-                    Soluções Personalizadas
-                  </h3>
-                  <p className="text-gray-600">
-                    Desenvolvemos projetos sob medida para cada cliente,
-                    considerando as características específicas do ambiente a
-                    ser climatizado e as necessidades operacionais da empresa,
-                    garantindo assim a máxima eficiência do sistema.
-                  </p>
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-primary mb-3">
-                    Suporte Técnico Especializado
-                  </h3>
-                  <p className="text-gray-600">
-                    Contamos com uma equipe de engenheiros e técnicos altamente
-                    qualificados, prontos para oferecer todo o suporte
-                    necessário desde a especificação do produto até a manutenção
-                    preventiva.
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="mt-16">
+            <DragCards cards={differentialCards} />
           </div>
         </div>
       </section>
@@ -285,7 +256,7 @@ interface ValueCardProps {
 const ValueCard = ({ icon, title, description }: ValueCardProps) => {
   return (
     <div className="bg-white p-6 rounded-lg shadow-md transition-all duration-300 hover:shadow-xl hover:-translate-y-1 text-center">
-      <div className="mb-4 text-secondary inline-flex items-center justify-center">
+      <div className="mb-4 text-blue-600 inline-flex items-center justify-center">
         {icon}
       </div>
       <h3 className="text-xl font-bold mb-3 text-primary">
