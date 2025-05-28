@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -134,6 +135,11 @@ export default {
     					opacity: '1'
     				}
     			},
+    			'scroll': {
+    				to: {
+    					transform: 'translate(calc(-50% - 0.5rem))'
+    				}
+    			},
     			'first': {
     				'0%': {
     					transform: 'rotate(0deg) translateX(0px)'
@@ -228,6 +234,7 @@ export default {
     			'fade-in': 'fade-in 0.4s ease-out',
     			'slide-in': 'slide-in 0.5s ease-out',
     			'slide-up': 'slide-up 0.5s ease-out',
+    			'scroll': 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
     			'first': 'first 8s linear infinite',
     			'second': 'second 10s linear infinite',
     			'third': 'third 12s linear infinite',

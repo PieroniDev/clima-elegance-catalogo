@@ -1,8 +1,38 @@
 
 import React from 'react';
-import { CheckCircle, Award, Shield, Users } from 'lucide-react';
+import { CheckCircle, Award, Shield, Users, Star, Quote } from 'lucide-react';
 import SectionTitle from '@/components/SectionTitle';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import OwnerProfile from '@/components/OwnerProfile';
+import { InfiniteMovingCards } from '@/components/ui/infinite-moving-cards';
+
+const testimonials = [
+  {
+    quote: "A Clima Elegance transformou nosso ambiente de trabalho. A redução na temperatura foi impressionante e nossos funcionários ficaram muito mais produtivos.",
+    name: "Carlos Mendes",
+    title: "Gerente de Produção - Metalúrgica São Paulo",
+  },
+  {
+    quote: "Excelente qualidade e atendimento. O climatizador industrial superou nossas expectativas e a economia de energia foi significativa.",
+    name: "Ana Paula Santos",
+    title: "Diretora Operacional - Têxtil Premium",
+  },
+  {
+    quote: "Profissionais extremamente qualificados. Desde a consultoria até a instalação, tudo foi perfeito. Recomendo a todos!",
+    name: "Roberto Silva",
+    title: "Proprietário - Indústria de Alimentos RJ",
+  },
+  {
+    quote: "O climatizador da Clima Elegance foi a melhor escolha que fizemos. Ambiente mais fresco, funcionários mais felizes e conta de energia menor.",
+    name: "Mariana Costa",
+    title: "Supervisora de RH - Fábrica de Calçados",
+  },
+  {
+    quote: "Tecnologia de ponta e suporte técnico excepcional. Já são 3 anos de funcionamento perfeito sem nenhum problema.",
+    name: "Pedro Oliveira",
+    title: "Engenheiro Chefe - Siderúrgica Nacional",
+  }
+];
 
 const Sobre = () => {
   return (
@@ -20,7 +50,7 @@ const Sobre = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
           <div className="max-w-3xl animate-fade-in">
             <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Sobre a Guiasul
+              Sobre a Clima Elegance
             </h1>
             <p className="text-xl md:text-2xl mb-8 text-gray-100">
               Inovação, qualidade e compromisso com a eficiência energética.
@@ -68,6 +98,39 @@ const Sobre = () => {
               />
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Owner Profile Section */}
+      <section className="py-20 bg-gradient-to-br from-accent via-white to-accent/50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SectionTitle 
+            title="Conheça Nosso Fundador" 
+            subtitle="A visão por trás da inovação"
+          />
+          <div className="mt-12">
+            <OwnerProfile />
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="py-20 bg-slate-900">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              O que nossos clientes dizem
+            </h2>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Mais de 500 empresas confiam em nossas soluções de climatização industrial
+            </p>
+          </div>
+          
+          <InfiniteMovingCards
+            items={testimonials}
+            direction="right"
+            speed="slow"
+          />
         </div>
       </section>
 

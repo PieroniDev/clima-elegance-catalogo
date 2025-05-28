@@ -8,7 +8,7 @@ interface WhatsAppButtonProps {
   className?: string;
   variant?: 'floating' | 'inline';
   children?: React.ReactNode;
-  onClick?: (e: React.MouseEvent) => void; // Add this line to support onClick prop
+  onClick?: (e: React.MouseEvent) => void;
 }
 
 const WhatsAppButton = ({
@@ -17,7 +17,7 @@ const WhatsAppButton = ({
   className,
   variant = 'inline',
   children,
-  onClick, // Add this line to accept the onClick prop
+  onClick,
 }: WhatsAppButtonProps) => {
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -30,7 +30,7 @@ const WhatsAppButton = ({
         rel="noopener noreferrer"
         className={cn(
           "fixed bottom-6 right-6 bg-green-600 text-white p-4 rounded-full shadow-lg hover:bg-green-700 transition-all z-50",
-          "hover:scale-110",
+          "hover:scale-110 active:bg-green-800 active:scale-95",
           className
         )}
         onClick={onClick}
@@ -46,7 +46,7 @@ const WhatsAppButton = ({
       target="_blank"
       rel="noopener noreferrer"
       className={cn(
-        "inline-flex items-center gap-2 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700 transition-all font-medium",
+        "btn-whatsapp inline-flex items-center gap-2",
         className
       )}
       onClick={onClick}

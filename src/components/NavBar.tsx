@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, X, MessageCircle } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 
@@ -11,6 +11,8 @@ const NavBar = () => {
   const toggleMenu = () => {
     setIsOpen(!isOpen);
   };
+
+  const whatsappUrl = "https://wa.me/5511999999999?text=Olá! Gostaria de obter um orçamento para climatizador industrial.";
 
   return (
     <nav className="sticky top-0 z-50 bg-white shadow-md">
@@ -32,17 +34,22 @@ const NavBar = () => {
               <NavLink to="/sobre">Sobre Nós</NavLink>
               <NavLink to="/catalogo">Catálogo</NavLink>
               <NavLink to="/contato">Contato</NavLink>
-              <Button className="btn-primary flex items-center gap-2">
-                <span>Orçamento</span>
-                <ChevronDown className="h-4 w-4" />
-              </Button>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-whatsapp flex items-center gap-2"
+              >
+                <MessageCircle className="h-4 w-4" />
+                <span>WhatsApp</span>
+              </a>
             </div>
           </div>
           
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary-light focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-primary hover:text-primary-light hover:bg-primary/10 focus:outline-none transition-colors"
             >
               {isOpen ? (
                 <X className="h-6 w-6" />
@@ -62,7 +69,16 @@ const NavBar = () => {
           <MobileNavLink to="/catalogo" onClick={toggleMenu}>Catálogo</MobileNavLink>
           <MobileNavLink to="/contato" onClick={toggleMenu}>Contato</MobileNavLink>
           <div className="pt-2">
-            <Button className="btn-primary w-full">Orçamento</Button>
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-whatsapp w-full flex items-center justify-center gap-2"
+              onClick={toggleMenu}
+            >
+              <MessageCircle className="h-4 w-4" />
+              <span>WhatsApp</span>
+            </a>
           </div>
         </div>
       </div>
@@ -80,13 +96,7 @@ const NavLink = ({ to, children, className }: NavLinkProps) => {
   return (
     <Link
       to={to}
-      className={cn(
-        "text-primary font-medium hover:text-secondary relative transition-colors duration-300",
-        "after:absolute after:w-full after:h-0.5 after:bg-secondary after:bottom-[-4px] after:left-0",
-        "after:scale-x-0 hover:after:scale-x-100 after:origin-bottom-right hover:after:origin-bottom-left",
-        "after:transition-transform after:duration-300",
-        className
-      )}
+      className={cn("nav-link", className)}
     >
       {children}
     </Link>
@@ -101,7 +111,7 @@ const MobileNavLink = ({ to, children, onClick }: MobileNavLinkProps) => {
   return (
     <Link
       to={to}
-      className="block px-3 py-2 rounded-md text-base font-medium text-primary hover:bg-accent transition-colors duration-300"
+      className="mobile-nav-link"
       onClick={onClick}
     >
       {children}
