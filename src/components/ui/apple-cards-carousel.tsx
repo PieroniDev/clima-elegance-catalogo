@@ -219,8 +219,7 @@ export const Card = ({
         <BlurImage
           src={card.src}
           alt={card.title}
-          fill
-          className="object-cover absolute z-10 inset-0"
+          className="object-cover absolute z-10 inset-0 w-full h-full"
         />
       </motion.button>
       {open && (
@@ -277,7 +276,7 @@ export const BlurImage = ({
   return (
     <img
       className={cn(
-        "transition duration-300",
+        "transition duration-300 w-full h-full object-cover",
         isLoading ? "blur-sm" : "blur-0",
         className
       )}
@@ -289,6 +288,7 @@ export const BlurImage = ({
       decoding="async"
       blurDataURL={typeof src === "string" ? src : undefined}
       alt={alt ? alt : "Background of a beautiful view"}
+      style={{ objectFit: 'cover', width: '100%', height: '100%' }}
       {...rest}
     />
   );
