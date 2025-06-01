@@ -11,7 +11,7 @@ const Footer = () => {
           {/* Logo and description */}
           <div className="col-span-1 md:col-span-1">
             <img 
-              src="/lovable-uploads/logo.jpeg" 
+              src="/lovable-uploads/logo.png" 
               alt="Guiasul Logo" 
               className="h-12 w-auto mb-4"
             />
