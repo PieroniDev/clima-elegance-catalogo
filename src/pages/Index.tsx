@@ -57,7 +57,7 @@ const featuredProducts: ProductProps[] = [
 
 const carouselCards = [
   {
-    src: "https://images.unsplash.com/photo-1487958449943-2429e8be8625?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    src: "midias/industrial1.jpeg",
     title: "Indústrias de Grande Porte",
     category: "Climatização Industrial",
     content: (
@@ -158,7 +158,7 @@ const Index = () => {
               <Button asChild size="lg" className="bg-white text-primary hover:bg-white/90 font-semibold">
                 <Link to="/catalogo">Conheça Nossos Produtos</Link>
               </Button>
-              <WhatsAppButton className="sm:max-w-fit bg-secondary hover:bg-secondary/90">
+              <WhatsAppButton className="sm:max-w-fit bg-green hover:bg-green/90">
                 Solicitar Orçamento
               </WhatsAppButton>
             </div>
