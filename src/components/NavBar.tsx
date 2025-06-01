@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, MessageCircle } from 'lucide-react';
@@ -33,6 +32,7 @@ const NavBar = () => {
               <NavLink to="/">Início</NavLink>
               <NavLink to="/sobre">Sobre Nós</NavLink>
               <NavLink to="/catalogo">Catálogo</NavLink>
+              <NavLink to="/atendimentos-concluidos">Atendimentos Concluídos</NavLink>
               <NavLink to="/contato">Contato</NavLink>
               <a
                 href={whatsappUrl}
@@ -67,6 +67,7 @@ const NavBar = () => {
           <MobileNavLink to="/" onClick={toggleMenu}>Início</MobileNavLink>
           <MobileNavLink to="/sobre" onClick={toggleMenu}>Sobre Nós</MobileNavLink>
           <MobileNavLink to="/catalogo" onClick={toggleMenu}>Catálogo</MobileNavLink>
+          <MobileNavLink to="/atendimentos-concluidos" onClick={toggleMenu}>Atendimentos Concluídos</MobileNavLink>
           <MobileNavLink to="/contato" onClick={toggleMenu}>Contato</MobileNavLink>
           <div className="pt-2">
             <a
