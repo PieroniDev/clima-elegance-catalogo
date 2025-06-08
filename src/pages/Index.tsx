@@ -13,44 +13,50 @@ import { Carousel, Card } from "@/components/ui/apple-cards-carousel";
 const featuredProducts: ProductProps[] = [
   {
     id: "1",
-    name: "Climatizador Industrial G7000",
+    name: "Roto 180 Confort",
     description:
-      "Climatizador de grande porte para ambientes industriais, ideal para galpões, fábricas e armazéns de grande escala.",
+      "Ideal para ambientes que exigem alto desempenho e baixo consumo de energia, o Roto 180 Confort oferece climatização eficiente com conforto térmico superior, perfeito para grandes espaços como academias, galpões e centros de produção.",
     image:
-      "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+      "https://media.discordapp.net/attachments/811993131120853002/1381327376708931686/image.png?ex=68471cde&is=6845cb5e&hm=75ee9475ae093b7b4f28871e56493b79bbc1009ba08d3a9debbce03a4b6e016a&=&format=webp&quality=lossless",
     features: [
-      { label: "Vazão", value: "70.000m³/h" },
-      { label: "Área de cobertura", value: "Até 350m²" },
-      { label: "Consumo de energia", value: "1.2kW/h" },
-      { label: "Abertura Parede", value: "1350x1350mm" }
+      { label: "Vazão", value: "91.000m³/h" },
+      { label: "Tensão", value: "T/F 220v|380v|440v" },
+      { label: "Consumo de energia", value: "3,37 kW/h" },
+      { label: "Dimensão externa", value: "2000x2400x1230mm (ALP)" },
+      { label: "Abertura da Parede", value: "2010x2010mm (AL)" },
+      { label: "Peso", value: "300 Kg (sem água)" },
     ]
   },
   {
     id: "2",
-    name: "Climatizador Industrial G5000",
+    name: "Roto 170 Standard",
     description:
-      "Solução de alta eficiência para médias indústrias, galpões e centros logísticos com ampla área de cobertura.",
+      "Com excelente custo-benefício, o Roto 170 Standard é uma solução prática e eficaz para climatização de ambientes industriais e comerciais, garantindo ventilação constante com alta durabilidade e fácil manutenção.",
     image:
-      "https://images.unsplash.com/photo-1580983218765-f663bec07b37?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+      "https://media.discordapp.net/attachments/811993131120853002/1381328254455250944/image.png?ex=68471daf&is=6845cc2f&hm=eedcb92ccf20a9909f5f64c05c0bfbcc2c38fffc175c046f68bef00f9960ef30&=&format=webp&quality=lossless",
     features: [
-      { label: "Vazão", value: "50.000m³/h" },
-      { label: "Área de cobertura", value: "Até 250m²" },
-      { label: "Consumo de energia", value: "0.9kW/h" },
-      { label: "Abertura Parede", value: "1150x1150mm" }
+      { label: "Vazão", value: "70.000m³/h" },
+      { label: "Tensão", value: "M/F 220v" },
+      { label: "Consumo de energia", value: "2,57 kW/h" },
+      { label: "Dimensão externa", value: "1556x1890x1180mm (ALP)" },
+      { label: "Abertura da Parede", value: "1570x1570mm (AL)" },
+      { label: "Peso", value: "255 Kg (sem água)" },
     ]
   },
   {
     id: "3",
-    name: "Climatizador Industrial G3000",
+    name: "Central 200 Siroco",
     description:
-      "Modelo potente e versátil para pequenas indústrias, oficinas e ambientes que necessitam de climatização eficiente.",
+      "Desenvolvido para grandes demandas, o Central 200 Siroco combina potência e eficiência em um único equipamento, sendo ideal para ambientes amplos que precisam de climatização robusta e contínua.",
     image:
-      "https://images.unsplash.com/photo-1621193793262-4127d9855c91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+      "https://media.discordapp.net/attachments/811993131120853002/1381328983890595975/image.png?ex=68471e5d&is=6845ccdd&hm=a41e6035f7a6d40dcf9ae97bff0271094958b9cf620028fa2e9a7579619e41f6&=&format=webp&quality=lossless",
     features: [
-      { label: "Vazão", value: "30.000m³/h" },
-      { label: "Área de cobertura", value: "Até 150m²" },
-      { label: "Consumo de energia", value: "0.7kW/h" },
-      { label: "Abertura Parede", value: "950x950mm" }
+      { label: "Vazão", value: "180.000m³/h" },
+      { label: "Tensão", value: "T/F 220v|380v|440v" },
+      { label: "Consumo de energia", value: "32 kW/h | 40(cv)" },
+      { label: "Dimensão externa", value: "2380x1890x1180mm (ALP)" },
+      { label: "Abertura da Parede", value: "1140x1140mm (AL)" },
+      { label: "Peso", value: "1400 Kg (sem água)" },
     ]
   }
 ];
@@ -74,7 +80,7 @@ const carouselCards = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1581093196277-9f6e9b96cc00?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    src: "https://www.rotoplastriopreto.com.br/wp-content/uploads/2023/11/projeto-climatizador-galpao-logistico.jpeg",
     title: "Centros Logísticos",
     category: "Armazéns e Galpões",
     content: (
@@ -91,9 +97,26 @@ const carouselCards = [
     ),
   },
   {
-    src: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80",
+    src: "https://www.rotoplast.com.br/assets/img/site/blog/850/MC42NjUzNjIwMDE2OTkyOTk4ODIyNDc2NzA1ODQ.png?time=1699299884",
     title: "Fábricas Modernas",
     category: "Tecnologia Avançada",
+    content: (
+      <div>
+        <p className="text-gray-600 mb-4">
+          Equipamentos de última geração para fábricas que buscam 
+          excelência em climatização industrial.
+        </p>
+        <p className="text-gray-600">
+          Controle inteligente de temperatura e umidade para 
+          processos produtivos que exigem precisão.
+        </p>
+      </div>
+    ),
+  },
+  {
+    src: "https://blog.climabrisa.com.br/wp-content/uploads/2023/12/Beneficios-do-climatizador-evaporativo-para-academias.jpg",
+    title: "Academias e Centros de Treinamento",
+    category: "Conforto e Performance",
     content: (
       <div>
         <p className="text-gray-600 mb-4">
@@ -188,7 +211,7 @@ const Index = () => {
             <div className="lg:order-2 animate-slide-in">
               <SectionTitle
                 title="Referência em Climatização Industrial"
-                subtitle="Mais de 15 anos de experiência fornecendo soluções de climatização para os mais diversos segmentos industriais."
+                subtitle="Com soluções personalizadas e tecnologia de ponta, oferecemos conforto térmico com eficiência e economia para os mais diversos segmentos."
                 alignment="left"
               />
               <p className="text-gray-600 mb-6">
@@ -244,7 +267,7 @@ const Index = () => {
               </h3>
               <p className="text-gray-600">
                 Climatizadores de alto desempenho com capacidade para atender
-                grandes áreas industriais com eficiência energética.
+                grandes áreas com eficiência energética.
               </p>
             </div>
 
@@ -257,7 +280,7 @@ const Index = () => {
               </h3>
               <p className="text-gray-600">
                 Desenvolvimento de projetos personalizados de acordo com as
-                características específicas de cada ambiente industrial.
+                características específicas de cada ambiente.
               </p>
             </div>
 

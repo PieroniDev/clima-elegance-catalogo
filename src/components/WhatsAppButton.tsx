@@ -1,28 +1,27 @@
-
-import { MessageCircle } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { MessageCircle } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface WhatsAppButtonProps {
   phoneNumber?: string;
   message?: string;
   className?: string;
-  variant?: 'floating' | 'inline';
+  variant?: "floating" | "inline";
   children?: React.ReactNode;
   onClick?: (e: React.MouseEvent) => void;
 }
 
 const WhatsAppButton = ({
-  phoneNumber = "5511999999999",
+  phoneNumber = "553199913768",
   message = "Olá! Gostaria de obter um orçamento para climatizador industrial.",
   className,
-  variant = 'inline',
+  variant = "inline",
   children,
-  onClick,
+  onClick
 }: WhatsAppButtonProps) => {
   const encodedMessage = encodeURIComponent(message);
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
-  
-  if (variant === 'floating') {
+
+  if (variant === "floating") {
     return (
       <a
         href={whatsappUrl}
@@ -39,16 +38,13 @@ const WhatsAppButton = ({
       </a>
     );
   }
-  
+
   return (
     <a
       href={whatsappUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className={cn(
-        "btn-whatsapp inline-flex items-center gap-2",
-        className
-      )}
+      className={cn("btn-whatsapp inline-flex items-center gap-2", className)}
       onClick={onClick}
     >
       <MessageCircle className="h-5 w-5" />

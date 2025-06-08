@@ -33,7 +33,7 @@ const OwnerProfile = () => {
                 </div>
                 <div className="flex items-center gap-1">
                   <Calendar className="h-4 w-4" />
-                  <span>15+ anos</span>
+                  <span>Dono da Guiasul</span>
                 </div>
               </div>
             </div>
@@ -43,17 +43,15 @@ const OwnerProfile = () => {
         {/* Content */}
         <div className="p-8">
           <p className="text-gray-600 leading-relaxed mb-8">
-            Com mais de 15 anos de experiência no setor de climatização industrial, 
-            Guilherme Leite de Andrade fundou a Guiasul com a missão de revolucionar o mercado brasileiro 
-            através de soluções inovadoras e sustentáveis em climatização.
+            Empreendedor especializado em climatização industrial, com atuação estratégica no desenvolvimento de soluções sustentáveis e tecnológicas que elevam a performance de empresas em todo o Brasil.
           </p>
           
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <Briefcase className="h-6 w-6 text-primary mx-auto mb-2" />
-              <div className="text-xl font-bold text-gray-900">15+</div>
-              <div className="text-sm text-gray-600">Anos</div>
+              <div className="text-xl font-bold text-gray-900"></div>
+              <div className="text-sm text-gray-600">Dono Guiasul & Representante </div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <Users className="h-6 w-6 text-secondary mx-auto mb-2" />
