@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target, Zap, Trophy, Flame, Star, Globe, Shield } from 'lucide-react';
+import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target, Zap, Trophy, Flame, Star, Globe, Shield, Handshake } from 'lucide-react';
 
 const OwnerProfile = () => {
   return (
