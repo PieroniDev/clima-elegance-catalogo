@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target, Lightbulb, Rocket } from 'lucide-react';
+import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target, Zap, Trophy, Flame, Star, Globe, Shield } from 'lucide-react';
 
 const OwnerProfile = () => {
   return (
@@ -70,30 +70,89 @@ const OwnerProfile = () => {
             </div>
           </div>
           
-          {/* Vision & Mission Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl border border-primary/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                  <Lightbulb className="h-5 w-5 text-white" />
+          {/* Innovative Profile Section */}
+          <div className="space-y-8">
+            {/* Expertise Radar */}
+            <div className="bg-gradient-to-br from-slate-50 to-blue-50 p-6 rounded-2xl border border-slate-200">
+              <h4 className="text-xl font-bold text-slate-800 mb-6 text-center">Expertise & Conquistas</h4>
+              
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-yellow-400 rounded-full flex items-center justify-center">
+                    <Star className="h-3 w-3 text-yellow-800" />
+                  </div>
+                  <Zap className="h-8 w-8 text-yellow-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Inovação Tecnológica</h5>
+                  <p className="text-xs text-slate-600">Soluções de ponta em climatização</p>
                 </div>
-                <h4 className="text-lg font-bold text-primary">Visão</h4>
+                
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-green-400 rounded-full flex items-center justify-center">
+                    <Trophy className="h-3 w-3 text-green-800" />
+                  </div>
+                  <Globe className="h-8 w-8 text-green-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Expansão Estratégica</h5>
+                  <p className="text-xs text-slate-600">Representação oficial em MG</p>
+                </div>
+                
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-red-400 rounded-full flex items-center justify-center">
+                    <Flame className="h-3 w-3 text-red-800" />
+                  </div>
+                  <Shield className="h-8 w-8 text-red-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Qualidade Premium</h5>
+                  <p className="text-xs text-slate-600">Padrões internacionais</p>
+                </div>
+                
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-blue-400 rounded-full flex items-center justify-center">
+                    <Star className="h-3 w-3 text-blue-800" />
+                  </div>
+                  <Users className="h-8 w-8 text-blue-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Liderança Visionária</h5>
+                  <p className="text-xs text-slate-600">Transformação de mercados</p>
+                </div>
+                
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-purple-400 rounded-full flex items-center justify-center">
+                    <Trophy className="h-3 w-3 text-purple-800" />
+                  </div>
+                  <Target className="h-8 w-8 text-purple-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Resultados Excepcionais</h5>
+                  <p className="text-xs text-slate-600">Performance comprovada</p>
+                </div>
+                
+                <div className="group relative bg-white p-4 rounded-xl shadow-sm hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                  <div className="absolute -top-2 -right-2 w-6 h-6 bg-orange-400 rounded-full flex items-center justify-center">
+                    <Flame className="h-3 w-3 text-orange-800" />
+                  </div>
+                  <Heart className="h-8 w-8 text-orange-500 mb-3 group-hover:scale-110 transition-transform" />
+                  <h5 className="font-semibold text-slate-800 mb-1">Compromisso Total</h5>
+                  <p className="text-xs text-slate-600">Excelência em atendimento</p>
+                </div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Ser referência nacional em climatização industrial, transformando ambientes de trabalho através de soluções inovadoras e sustentáveis que elevam a produtividade e o bem-estar.
-              </p>
             </div>
             
-            <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-6 rounded-xl border border-secondary/20">
-              <div className="flex items-center gap-3 mb-4">
-                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
-                  <Rocket className="h-5 w-5 text-white" />
-                </div>
-                <h4 className="text-lg font-bold text-secondary">Missão</h4>
+            {/* Philosophy Quote */}
+            <div className="relative overflow-hidden bg-gradient-to-r from-primary/10 via-secondary/5 to-primary/10 p-8 rounded-2xl border border-primary/20">
+              <div className="absolute top-0 left-0 w-full h-full opacity-5">
+                <div className="absolute top-4 left-4 text-6xl font-bold text-primary">"</div>
+                <div className="absolute bottom-4 right-4 text-6xl font-bold text-secondary rotate-180">"</div>
               </div>
-              <p className="text-gray-700 leading-relaxed">
-                Desenvolver e fornecer climatizadores industriais de alta performance, oferecendo consultoria especializada e suporte técnico excepcional para maximizar a eficiência de nossos clientes.
-              </p>
+              
+              <div className="relative z-10 text-center">
+                <h4 className="text-xl font-bold text-primary mb-4">Filosofia de Trabalho</h4>
+                <p className="text-lg text-slate-700 italic font-medium leading-relaxed max-w-3xl mx-auto">
+                  "Cada projeto é uma oportunidade única de revolucionar ambientes industriais. 
+                  Não vendemos apenas equipamentos - criamos ecossistemas de eficiência energética 
+                  que transformam a produtividade e o bem-estar das pessoas."
+                </p>
+                <div className="mt-6 flex items-center justify-center gap-2">
+                  <div className="w-12 h-0.5 bg-gradient-to-r from-transparent to-primary"></div>
+                  <span className="text-primary font-semibold px-3">Guilherme Leite</span>
+                  <div className="w-12 h-0.5 bg-gradient-to-l from-transparent to-primary"></div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
