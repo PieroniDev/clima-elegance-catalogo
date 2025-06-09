@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Users, Briefcase, Heart, MapPin, Calendar } from 'lucide-react';
+import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target } from 'lucide-react';
 
 const OwnerProfile = () => {
   return (
@@ -24,7 +24,7 @@ const OwnerProfile = () => {
                 Guilherme Leite de Andrade
               </h3>
               <p className="text-primary font-medium mb-2">
-                Dono da Guiasul & Representante Oficial Rotoplast - MG
+                Fundador da Guiasul & Representante Oficial Rotoplast - MG
               </p>
               <div className="flex items-center justify-center md:justify-start gap-4 text-sm text-gray-600">
                 <div className="flex items-center gap-1">
@@ -32,8 +32,8 @@ const OwnerProfile = () => {
                   <span>Minas Gerais</span>
                 </div>
                 <div className="flex items-center gap-1">
-                  <Calendar className="h-4 w-4" />
-                  <span>Dono da Guiasul</span>
+                  <Building className="h-4 w-4" />
+                  <span>Empresário</span>
                 </div>
               </div>
             </div>
@@ -43,25 +43,25 @@ const OwnerProfile = () => {
         {/* Content */}
         <div className="p-8">
           <p className="text-gray-600 leading-relaxed mb-8">
-            Empreendedor especializado em climatização industrial, com atuação estratégica no desenvolvimento de soluções sustentáveis e tecnológicas que elevam a performance de empresas em todo o Brasil.
+            Visionário no setor de climatização industrial, com foco em inovação tecnológica e desenvolvimento de soluções sustentáveis que transformam ambientes corporativos em todo o Brasil. Especialista em projetos customizados que aliam eficiência energética e alta performance.
           </p>
           
           {/* Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <Briefcase className="h-6 w-6 text-primary mx-auto mb-2" />
-              <div className="text-xl font-bold text-gray-900"></div>
-              <div className="text-sm text-gray-600">Dono Guiasul & Representante </div>
+              <Building className="h-6 w-6 text-primary mx-auto mb-2" />
+              <div className="text-xl font-bold text-gray-900">Guiasul</div>
+              <div className="text-sm text-gray-600">Fundador & CEO</div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <Users className="h-6 w-6 text-secondary mx-auto mb-2" />
               <div className="text-xl font-bold text-gray-900">500+</div>
-              <div className="text-sm text-gray-600">Clientes</div>
+              <div className="text-sm text-gray-600">Projetos Entregues</div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
-              <Award className="h-6 w-6 text-primary mx-auto mb-2" />
-              <div className="text-xl font-bold text-gray-900">25+</div>
-              <div className="text-sm text-gray-600">Prêmios</div>
+              <Target className="h-6 w-6 text-primary mx-auto mb-2" />
+              <div className="text-xl font-bold text-gray-900">100%</div>
+              <div className="text-sm text-gray-600">Foco em Resultados</div>
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <Heart className="h-6 w-6 text-secondary mx-auto mb-2" />
@@ -73,11 +73,11 @@ const OwnerProfile = () => {
           {/* Quote */}
           <div className="bg-gradient-to-r from-primary/5 to-secondary/5 p-6 rounded-xl border-l-4 border-primary">
             <blockquote className="text-gray-700 italic mb-3">
-              "Nosso compromisso é proporcionar soluções de climatização que não apenas 
-              atendem às necessidades dos nossos clientes, mas superam suas expectativas, 
-              sempre com foco na sustentabilidade e inovação."
+              "Acredito que cada projeto é uma oportunidade de transformar ambientes e vidas. 
+              Nossa missão vai além de vender climatizadores - criamos soluções que geram 
+              valor real, economia de energia e bem-estar para nossos clientes."
             </blockquote>
-            <cite className="text-primary font-medium">— Guilherme Leite de Andrade, Fundador</cite>
+            <cite className="text-primary font-medium">— Guilherme Leite de Andrade, Fundador da Guiasul</cite>
           </div>
         </div>
       </div>
