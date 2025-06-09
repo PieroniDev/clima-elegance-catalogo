@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target } from 'lucide-react';
+import { Award, Users, Briefcase, Heart, MapPin, Calendar, Building, Target, Lightbulb, Rocket } from 'lucide-react';
 
 const OwnerProfile = () => {
   return (
@@ -70,14 +70,31 @@ const OwnerProfile = () => {
             </div>
           </div>
           
-          {/* Quote */}
-          <div className="bg-gradient-to-r from-primary/5 to-secondary/5 p-6 rounded-xl border-l-4 border-primary">
-            <blockquote className="text-gray-700 italic mb-3">
-              "Acredito que cada projeto é uma oportunidade de transformar ambientes e vidas. 
-              Nossa missão vai além de vender climatizadores - criamos soluções que geram 
-              valor real, economia de energia e bem-estar para nossos clientes."
-            </blockquote>
-            <cite className="text-primary font-medium">— Guilherme Leite de Andrade, Fundador da Guiasul</cite>
+          {/* Vision & Mission Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gradient-to-br from-primary/5 to-primary/10 p-6 rounded-xl border border-primary/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+                  <Lightbulb className="h-5 w-5 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-primary">Visão</h4>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Ser referência nacional em climatização industrial, transformando ambientes de trabalho através de soluções inovadoras e sustentáveis que elevam a produtividade e o bem-estar.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-secondary/5 to-secondary/10 p-6 rounded-xl border border-secondary/20">
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-10 h-10 bg-secondary rounded-lg flex items-center justify-center">
+                  <Rocket className="h-5 w-5 text-white" />
+                </div>
+                <h4 className="text-lg font-bold text-secondary">Missão</h4>
+              </div>
+              <p className="text-gray-700 leading-relaxed">
+                Desenvolver e fornecer climatizadores industriais de alta performance, oferecendo consultoria especializada e suporte técnico excepcional para maximizar a eficiência de nossos clientes.
+              </p>
+            </div>
           </div>
         </div>
       </div>
