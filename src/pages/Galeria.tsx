@@ -1,18 +1,22 @@
-
 import React, { useState } from 'react';
-import { ArrowLeft, X, ZoomIn } from 'lucide-react';
+import { ArrowLeft, X, ZoomIn, ChevronLeft, ChevronRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SectionTitle from '@/components/SectionTitle';
 
 const Galeria = () => {
-  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
-  // Dados completos da galeria
+  // Dados completos da galeria com múltiplas imagens
   const projetos = [
     {
       id: 1,
       titulo: "Instalação Metalúrgica - SP",
-      imagem: "/public/midias/industrial1.jpeg",
+      imagens: [
+        "/public/midias/industrial1.jpeg",
+        "/public/midias/images.jpg",
+        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+      ],
       descricao: "Climatização completa de galpão industrial de 2000m²",
       categoria: "Industrial",
       ano: "2024"
@@ -20,7 +24,10 @@ const Galeria = () => {
     {
       id: 2,
       titulo: "Fábrica Têxtil - RJ",
-      imagem: "/public/midias/images.jpg",
+      imagens: [
+        "/public/midias/images.jpg",
+        "/public/midias/industrial1.jpeg"
+      ],
       descricao: "Sistema de climatização para ambiente de produção têxtil",
       categoria: "Têxtil",
       ano: "2023"
@@ -28,7 +35,11 @@ const Galeria = () => {
     {
       id: 3,
       titulo: "Supermercado JJ Faria (Candeias)",
-      imagem: "/public/midias/galeria/SupermercadoJJFaria1.jpeg",
+      imagens: [
+        "/public/midias/galeria/SupermercadoJJFaria1.jpeg",
+        "/public/midias/galeria/SupermercadoJJFaria2.jpeg",
+        "/public/midias/galeria/SupermercadoJJFaria3.jpeg"
+      ],
       descricao: "Climatização de supermercado com foco em eficiência energética",
       categoria: "Alimentícia",
       ano: "2023"
@@ -36,7 +47,10 @@ const Galeria = () => {
     {
       id: 4,
       titulo: "Galpão Logístico - SP",
-      imagem: "/public/midias/images.jpg",
+      imagens: [
+        "/public/midias/images.jpg",
+        "/public/midias/industrial1.jpeg"
+      ],
       descricao: "Instalação em centro de distribuição de grande porte",
       categoria: "Logística",
       ano: "2024"
@@ -44,7 +58,10 @@ const Galeria = () => {
     {
       id: 5,
       titulo: "Indústria Automotiva - SP",
-      imagem: "/public/midias/industrial1.jpeg",
+      imagens: [
+        "/public/midias/industrial1.jpeg",
+        "/public/midias/images.jpg"
+      ],
       descricao: "Sistema de climatização para linha de produção automotiva",
       categoria: "Automotiva",
       ano: "2023"
@@ -52,7 +69,11 @@ const Galeria = () => {
     {
       id: 6,
       titulo: "Centro de Distribuição - RJ",
-      imagem: "/public/midias/images.jpg",
+      imagens: [
+        "/public/midias/images.jpg",
+        "/public/midias/industrial1.jpeg",
+        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+      ],
       descricao: "Climatização de amplo centro de distribuição",
       categoria: "Logística",
       ano: "2024"
@@ -67,13 +88,27 @@ const Galeria = () => {
     : projetos.filter(p => p.categoria === filtroCategoria);
 
   const abrirModal = (projeto) => {
-    setSelectedImage(projeto);
+    setSelectedProject(projeto);
+    setCurrentImageIndex(0);
     document.body.style.overflow = 'hidden';
   };
 
   const fecharModal = () => {
-    setSelectedImage(null);
+    setSelectedProject(null);
+    setCurrentImageIndex(0);
     document.body.style.overflow = 'auto';
+  };
+
+  const proximaImagem = () => {
+    if (selectedProject && currentImageIndex < selectedProject.imagens.length - 1) {
+      setCurrentImageIndex(prev => prev + 1);
+    }
+  };
+
+  const imagemAnterior = () => {
+    if (currentImageIndex > 0) {
+      setCurrentImageIndex(prev => prev - 1);
+    }
   };
 
   return (
@@ -134,7 +169,7 @@ const Galeria = () => {
               >
                 <div className="relative h-64 bg-gray-200 group">
                   <img
-                    src={projeto.imagem}
+                    src={projeto.imagens[0]}
                     alt={projeto.titulo}
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                     loading="lazy"
@@ -147,6 +182,13 @@ const Galeria = () => {
                       {projeto.categoria}
                     </span>
                   </div>
+                  {projeto.imagens.length > 1 && (
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs">
+                        +{projeto.imagens.length - 1} fotos
+                      </span>
+                    </div>
+                  )}
                 </div>
                 
                 <div className="p-6">
@@ -164,8 +206,8 @@ const Galeria = () => {
         </div>
       </section>
 
-      {/* Modal */}
-      {selectedImage && (
+      {/* Modal com navegação entre imagens */}
+      {selectedProject && (
         <div className="fixed inset-0 bg-black bg-opacity-90 z-50 flex items-center justify-center p-4">
           <div className="relative max-w-4xl w-full">
             <button
@@ -178,25 +220,53 @@ const Galeria = () => {
             <div className="bg-white rounded-lg overflow-hidden">
               <div className="relative h-96 md:h-[500px]">
                 <img
-                  src={selectedImage.imagem}
-                  alt={selectedImage.titulo}
+                  src={selectedProject.imagens[currentImageIndex]}
+                  alt={`${selectedProject.titulo} - ${currentImageIndex + 1}`}
                   className="w-full h-full object-cover"
                 />
+                
+                {/* Navegação entre imagens */}
+                {selectedProject.imagens.length > 1 && (
+                  <>
+                    {currentImageIndex > 0 && (
+                      <button
+                        onClick={imagemAnterior}
+                        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-70 transition-all"
+                      >
+                        <ChevronLeft className="h-6 w-6" />
+                      </button>
+                    )}
+                    
+                    {currentImageIndex < selectedProject.imagens.length - 1 && (
+                      <button
+                        onClick={proximaImagem}
+                        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black bg-opacity-50 text-white rounded-full p-2 hover:bg-opacity-70 transition-all"
+                      >
+                        <ChevronRight className="h-6 w-6" />
+                      </button>
+                    )}
+                    
+                    {/* Indicador de posição */}
+                    <div className="absolute bottom-4 left-1/2 -translate-x-1/2 bg-black bg-opacity-50 text-white px-3 py-1 rounded-full text-sm">
+                      {currentImageIndex + 1} / {selectedProject.imagens.length}
+                    </div>
+                  </>
+                )}
               </div>
               
               <div className="p-6">
                 <div className="flex justify-between items-start mb-4">
-                  <h2 className="text-2xl font-bold text-gray-900">{selectedImage.titulo}</h2>
+                  <h2 className="text-2xl font-bold text-gray-900">{selectedProject.titulo}</h2>
                   <div className="flex gap-2">
                     <span className="bg-primary text-white px-3 py-1 rounded-full text-sm">
-                      {selectedImage.categoria}
+                      {selectedProject.categoria}
                     </span>
                     <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">
-                      {selectedImage.ano}
+                      {selectedProject.ano}
                     </span>
                   </div>
                 </div>
-                <p className="text-gray-600 text-lg">{selectedImage.descricao}</p>
+                <p className="text-gray-600 text-lg">{selectedProject.descricao}</p>
               </div>
             </div>
           </div>

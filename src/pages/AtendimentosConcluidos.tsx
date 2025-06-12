@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Star, ChevronRight, ArrowRight } from 'lucide-react';
@@ -58,7 +57,7 @@ const AtendimentosConcluidos = () => {
     },
     {
       pergunta: "Os climatizadores consomem muita energia?",
-      resposta: "Nossos climatizadores são altamente eficientes energeticamente, consumindo até 80% menos energia que sistemas de ar condicionado convencionais."
+      resposta: "Nossos climatizadores são altamente eficientes energicamente, consumindo até 80% menos energia que sistemas de ar condicionado convencionais."
     },
     {
       pergunta: "Vocês atendem em todo o Brasil?",
@@ -66,30 +65,44 @@ const AtendimentosConcluidos = () => {
     }
   ];
 
-  // Dados da galeria (preview)
+  // Dados da galeria (preview) - agora com múltiplas imagens
   const galeriaPreview = [
     {
       id: 1,
       titulo: "Instalação Metalúrgica - SP",
-      imagem: "/public/midias/industrial1.jpeg",
+      imagens: [
+        "/public/midias/industrial1.jpeg",
+        "/public/midias/images.jpg",
+        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+      ],
       descricao: "Climatização completa de galpão industrial de 2000m²"
     },
     {
       id: 2,
       titulo: "Fábrica Têxtil - RJ",
-      imagem: "/public/midias/images.jpg",
+      imagens: [
+        "/public/midias/images.jpg",
+        "/public/midias/industrial1.jpeg"
+      ],
       descricao: "Sistema de climatização para ambiente de produção têxtil"
     },
     {
       id: 3,
       titulo: "Indústria Alimentícia - MG",
-      imagem: "/public/midias/industrial1.jpeg",
+      imagens: [
+        "/public/midias/galeria/SupermercadoJJFaria2.jpeg",
+        "/public/midias/galeria/SupermercadoJJFaria3.jpeg",
+        "/public/midias/industrial1.jpeg"
+      ],
       descricao: "Climatização especial para controle de temperatura em produção"
     },
     {
       id: 4,
       titulo: "Galpão Logístico - SP",
-      imagem: "/public/midias/images.jpg",
+      imagens: [
+        "/public/midias/images.jpg",
+        "/public/midias/industrial1.jpeg"
+      ],
       descricao: "Instalação em centro de distribuição de grande porte"
     }
   ];
@@ -184,11 +197,18 @@ const AtendimentosConcluidos = () => {
               <Card key={projeto.id} className="card-hover overflow-hidden">
                 <div className="relative h-48 bg-gray-200">
                   <img
-                    src={projeto.imagem}
+                    src={projeto.imagens[0]}
                     alt={projeto.titulo}
                     className="w-full h-full object-cover transition-transform duration-300 hover:scale-105"
                     loading="lazy"
                   />
+                  {projeto.imagens.length > 1 && (
+                    <div className="absolute top-2 left-2">
+                      <span className="bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs">
+                        +{projeto.imagens.length - 1} fotos
+                      </span>
+                    </div>
+                  )}
                 </div>
                 <CardContent className="p-4">
                   <h3 className="font-semibold text-gray-900 mb-2">{projeto.titulo}</h3>
