@@ -27,9 +27,9 @@ const Galeria = () => {
     },
     {
       id: 3,
-      titulo: "Indústria Alimentícia - MG",
-      imagem: "/public/midias/industrial1.jpeg",
-      descricao: "Climatização especial para controle de temperatura em produção",
+      titulo: "Supermercado JJ Faria (Candeias)",
+      imagem: "/public/midias/galeria/SupermercadoJJFaria1.jpeg",
+      descricao: "Climatização de supermercado com foco em eficiência energética",
       categoria: "Alimentícia",
       ano: "2023"
     },

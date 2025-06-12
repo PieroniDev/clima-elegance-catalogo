@@ -7,12 +7,19 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 import SectionTitle from '@/components/SectionTitle';
 import WhatsAppButton from '@/components/WhatsAppButton';
+import Swal from 'sweetalert2'
+
 
 const Contato = () => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // Processar envio do formulário (seria necessário integrar com um backend)
-    alert("Formulário enviado com sucesso!");
+    Swal.fire({
+      title: 'Sucesso!',
+      text: 'Enviado com Sucesso!',
+      icon: 'success',
+      confirmButtonText: 'Fechar'
+    })
   };
 
   return (
@@ -62,15 +69,10 @@ const Contato = () => {
                 <ContactInfo 
                   icon={<Mail className="h-6 w-6" />}
                   title="E-mail"
-                  description="contato@climaelegance.com.br"
-                  link="mailto:contato@climaelegance.com.br"
+                  description="guiasulclimatizacao@gmail.com"
+                  link="mailto:guiasulclimatizacao@gmail.com"
                 />
-                <ContactInfo 
-                  icon={<MapPin className="h-6 w-6" />}
-                  title="Endereço"
-                  description="Av. Industrial, 1000 - São Paulo, SP"
-                  link="https://maps.google.com"
-                />
+                
                 <ContactInfo 
                   icon={<Clock className="h-6 w-6" />}
                   title="Horário de Atendimento"
@@ -82,7 +84,7 @@ const Contato = () => {
                 <h3 className="text-xl font-bold text-primary mb-4">Atendimento Rápido</h3>
                 <p className="text-gray-600 mb-6">
                   Para um atendimento mais rápido, entre em contato via WhatsApp e fale diretamente 
-                  com um de nossos especialistas.
+                  com <b>Guilherme Leite</b>.
                 </p>
                 <WhatsAppButton className="mt-2">
                   Conversar pelo WhatsApp

@@ -65,7 +65,7 @@ const OwnerProfile = () => {
             </div>
             <div className="text-center p-4 bg-gray-50 rounded-xl hover:bg-gray-100 transition-colors">
               <Heart className="h-6 w-6 text-secondary mx-auto mb-2" />
-              <div className="text-xl font-bold text-gray-900">98%</div>
+              <div className="text-xl font-bold text-gray-900">100%</div>
               <div className="text-sm text-gray-600">Satisfação</div>
             </div>
           </div>
