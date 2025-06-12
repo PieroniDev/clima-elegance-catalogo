@@ -11,25 +11,25 @@ const Galeria = () => {
   const projetos = [
     {
       id: 1,
-      titulo: "Instalação Metalúrgica - SP",
+      titulo: "Steinert Latinoamericana - Galpão Industrial",
       imagens: [
-        "/public/midias/industrial1.jpeg",
-        "/public/midias/images.jpg",
-        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+        "/public/midias/galeria/Steinert(2).jpeg",
+        "/public/midias/galeria/Steinert(1).jpeg",
+        "/public/midias/galeria/Steinert(4).jpeg",
       ],
-      descricao: "Climatização completa de galpão industrial de 2000m²",
+      descricao: "Climatização de galpão industrial Steinert Latinoamericana",
       categoria: "Industrial",
       ano: "2024"
     },
     {
       id: 2,
-      titulo: "Fábrica Têxtil - RJ",
+      titulo: "Indústria de alimentos Yupi",
       imagens: [
-        "/public/midias/images.jpg",
-        "/public/midias/industrial1.jpeg"
+        "/public/midias/galeria/industriaDeAlimentosYupi(2).jpeg",
+        "/public/midias/galeria/industriaDeAlimentosYupi(1).jpeg",
       ],
-      descricao: "Sistema de climatização para ambiente de produção têxtil",
-      categoria: "Têxtil",
+      descricao: "Sistema de climatização para ambiente de produção alimentícia",
+      categoria: "Alimentícia",
       ano: "2023"
     },
     {
@@ -46,10 +46,10 @@ const Galeria = () => {
     },
     {
       id: 4,
-      titulo: "Galpão Logístico - SP",
+      titulo: "Padrão Minas - Soluções Autoadesivas",
       imagens: [
-        "/public/midias/images.jpg",
-        "/public/midias/industrial1.jpeg"
+        "/public/midias/galeria/PadraoMinas (1).jpeg",
+        "/public/midias/galeria/PadraoMinas (2).jpeg"
       ],
       descricao: "Instalação em centro de distribuição de grande porte",
       categoria: "Logística",
@@ -57,27 +57,149 @@ const Galeria = () => {
     },
     {
       id: 5,
-      titulo: "Indústria Automotiva - SP",
+      titulo: "Hortifruti Bem Que Tem ",
       imagens: [
-        "/public/midias/industrial1.jpeg",
-        "/public/midias/images.jpg"
+        "/public/midias/galeria/hortifrutiBemQueTem (3).jpeg",
+        "/public/midias/galeria/hortifrutiBemQueTem (1).jpeg",
+        "/public/midias/galeria/hortifrutiBemQueTem (2).jpeg",
+        "/public/midias/galeria/hortifrutiBemQueTem (4).jpeg",
       ],
       descricao: "Sistema de climatização para linha de produção automotiva",
-      categoria: "Automotiva",
+      categoria: "Alimentícia",
       ano: "2023"
     },
     {
       id: 6,
-      titulo: "Centro de Distribuição - RJ",
+      titulo: "Igreja Pentecostal Boas Novas",
       imagens: [
-        "/public/midias/images.jpg",
-        "/public/midias/industrial1.jpeg",
-        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+        "/public/midias/galeria/IgrejaPentecostal BoasNovas (1).jpeg",
+        "/public/midias/galeria/IgrejaPentecostal BoasNovas (2).jpeg",
       ],
-      descricao: "Climatização de amplo centro de distribuição",
+      descricao: "Instalação de climatização em espaço religioso",
+      categoria: "Outros",
+      ano: "2024"
+    },
+    {
+      id: 7,
+      titulo: "HB Services - Equipamentos hidráulicos e Pneumáticos",
+      imagens: [
+        "/public/midias/galeria/HBService (1).jpeg",
+        "/public/midias/galeria/HBService (2).jpeg"
+      ],
+      descricao: "Instalação de climatização na HB Services - Equipamentos hidráulicos e pneumáticos",
+      categoria: "Industrial",
+      ano: "2024"
+    },
+    {
+      id: 8,
+      titulo: "Ribeiros Fitness - Academia",
+      imagens: [
+        "/public/midias/galeria/RibeirosFitness (1).jpeg",
+        "/public/midias/galeria/RibeirosFitness (2).jpeg"
+      ],
+      descricao: "Instalação de climatização em academia Ribeiros Fitness",
+      categoria: "Academia",
+      ano: "2024"
+    },
+    {
+      id: 9,
+      titulo: "Granja De Ovos Indaiá",
+      imagens: [
+        "/public/midias/galeria/granjaDeOvosIndaiá (1).jpeg",
+        "/public/midias/galeria/granjaDeOvosIndaiá (2).jpeg"
+      ],
+      descricao: "Instalação de climatização em granja de ovos Indaiá",
+      categoria: "Industrial",
+      ano: "2024"
+    },
+    {
+      id: 10,
+      titulo: "Minas Cooding Automação",
+      imagens: [
+        "/public/midias/galeria/MinasCooding Automação (2).jpeg",
+        "/public/midias/galeria/MinasCooding Automação (1).jpeg",
+      ],
+      descricao: "Instalação de climatização na Minas Cooding Automação",
       categoria: "Logística",
       ano: "2024"
-    }
+    },
+    {
+      id: 11,
+      titulo: "Academia Blue",
+      imagens: [
+        "/public/midias/galeria/Academia Blue.jpeg",
+      ],
+      descricao: "Instalação de climatização na Academia Blue",
+      categoria: "Academia",
+      ano: "2024"
+    },
+    {
+      id: 12,
+      titulo: "Celsinho Grill",
+      imagens: [
+        "/public/midias/galeria/CelsinhoGrill.jpeg",
+      ],
+      descricao: "Instalação de climatização no restaurante Celsinho Grill",
+      categoria: "Alimentícia",
+      ano: "2024"
+    },
+    {
+      id: 13,
+      titulo: "Plena Alimentos ",
+      imagens: [
+        "/public/midias/galeria/PlenaAlimentos (1).jpeg",
+        "/public/midias/galeria/PlenaAlimentos (2).jpeg",
+      ],
+      descricao: "Instalação de climatização na Plena Alimentos",
+      categoria: "Alimentícia",
+      ano: "2024"
+    },
+    {
+      id: 14,
+      titulo: "Instituto Metha de  Ensino",
+      imagens: [
+        "/public/midias/galeria/Instituto Metha de  Ensino (3).jpeg",
+        "/public/midias/galeria/Instituto Metha de  Ensino (2).jpeg",
+        "/public/midias/galeria/Instituto Metha de  Ensino (1).jpeg",
+      ],
+      descricao: "Instalação de climatização no Instituto Metha de Ensino",
+      categoria: "Outros",
+      ano: "2024"
+    },
+    {
+      id: 15,
+      titulo: "Padaria Sarah",
+      imagens: [
+        "/public/midias/galeria/Padaria Sarah.jpeg",
+      ],
+      descricao: "Instalação de climatização na Padaria Sarah",
+      categoria: "Alimentícia",
+      ano: "2024"
+    },
+    {
+      id: 16,
+      titulo: "Crossfit Pampulha",
+      imagens: [
+        "/public/midias/galeria/Crossfit Pampulha (1).jpeg",
+        "/public/midias/galeria/Crossfit Pampulha (2).jpeg",
+        "/public/midias/galeria/Crossfit Pampulha (3).jpeg",
+        "/public/midias/galeria/Crossfit Pampulha (4).jpeg",
+      ],
+      descricao: "Instalação de climatização na Crossfit Pampulha",
+      categoria: "Academia",
+      ano: "2024"
+    },
+    {
+      id: 17,
+      titulo: "Cobra Rolamentos",
+      imagens: [
+        "/public/midias/galeria/CobraRolamentos.jpeg",
+      ],
+      descricao: "Instalação de climatização na Cobra Rolamentos",
+      categoria: "Industrial",
+      ano: "2024"
+    },
+    
   ];
 
   const [filtroCategoria, setFiltroCategoria] = useState('Todos');

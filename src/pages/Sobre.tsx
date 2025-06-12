@@ -43,27 +43,17 @@ const Sobre = () => {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-primary text-white">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/80 z-0" />
-        <div
-          className="absolute inset-0 z-0 opacity-20 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              "url(https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80)"
-          }}
-        />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 md:py-32 relative z-10">
-          <div className="max-w-3xl animate-fade-in">
-            <h1 className="text-4xl md:text-5xl font-bold leading-tight mb-6">
-              Sobre a Guiasul
-            </h1>
-            <p className="text-xl md:text-2xl mb-8 text-gray-100">
-              Inovação, qualidade e compromisso com a eficiência energética.
-            </p>
-          </div>
+      <section className="bg-gradient-to-r from-primary to-primary-light text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            Atendimentos Concluídos
+          </h1>
+          <p className="text-xl md:text-2xl text-gray-200 max-w-3xl mx-auto">
+           Inovação, qualidade e compromisso com a eficiência energética.
+          </p>
         </div>
       </section>
+              
 
       {/* Nossa História */}
       <section className="py-20 bg-white">

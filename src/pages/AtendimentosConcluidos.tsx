@@ -4,33 +4,68 @@ import { Star, ChevronRight, ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import SectionTitle from '@/components/SectionTitle';
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
+import WhatsAppButton from '@/components/WhatsAppButton';
 
 const AtendimentosConcluidos = () => {
+  // Dados dos depoimentos
+  const testimonials = [
+  {
+    quote:
+      "A Guiasul transformou nosso ambiente de trabalho. A redução na temperatura foi impressionante e nossos funcionários ficaram muito mais produtivos.",
+    name: "Carlos Mendes",
+    title: "Dono da empresa tal"
+  },
+  {
+    quote:
+      "Excelente qualidade e atendimento. O climatizador industrial superou nossas expectativas e a economia de energia foi significativa.",
+    name: "Ana Paula ",
+    title: "Diretora industrial 123"
+  },
+  {
+    quote:
+      "Profissionais extremamente qualificados. Desde a consultoria até a instalação, tudo foi perfeito. Recomendo a todos!",
+    name: "Roberto Silva",
+    title: "Proprietário - Indústria ABC"
+  },
+  {
+    quote:
+      "O climatizador da Guiasul foi a melhor escolha que fizemos. Ambiente mais fresco, funcionários mais felizes e conta de energia menor.",
+    name: "Mariana Costa",
+    title: "Supervisora de Produção - Fábrica XYZ"
+  },
+  {
+    quote:
+      "Tecnologia de ponta e suporte técnico excepcional. Já são 3 anos de funcionamento perfeito sem nenhum problema.",
+    name: "Pedro Oliveira",
+    title: "Engenheiro de Produção - Indústria 456"
+  }
+];
   // Dados dos depoimentos
   const depoimentos = [
     {
       id: 1,
       nome: "João Silva",
-      empresa: "Metalúrgica Silva Ltda",
-      cargo: "Diretor de Operações",
-      texto: "A instalação do climatizador industrial da Guiasul transformou nosso ambiente de trabalho. A temperatura agora é constante e agradável, melhorando muito a produtividade da equipe.",
+      empresa: "Empresa XYZ",
+      cargo: "Dono da empresa XYZ",
+      texto: "Excelente serviço! O climatizador industrial que adquirimos melhorou muito o ambiente de trabalho e reduziu os custos com energia. Recomendo a todos.",
       rating: 5,
       data: "Janeiro 2024"
     },
     {
       id: 2,
-      nome: "Maria Santos",
-      empresa: "Fábrica Santos & Cia",
-      cargo: "Gerente de Produção",
+      nome: "Maria das Quantas",
+      empresa: "Empresa ABC",
+      cargo: "Gerente da Empresa ABC",
       texto: "Excelente qualidade do equipamento e atendimento excepcional. O climatizador funciona perfeitamente há mais de 2 anos sem nenhum problema.",
       rating: 5,
       data: "Dezembro 2023"
     },
     {
       id: 3,
-      nome: "Carlos Oliveira",
-      empresa: "Indústria Oliveira",
-      cargo: "Responsável Técnico",
+      nome: "Pedro ",
+      empresa: "Industia 123",
+      cargo: "Dono da Indústria 123",
       texto: "Investimento que valeu muito a pena. Reduzimos os custos com energia e melhoramos significativamente o conforto térmico do galpão industrial.",
       rating: 5,
       data: "Novembro 2023"
@@ -61,49 +96,49 @@ const AtendimentosConcluidos = () => {
     },
     {
       pergunta: "Vocês atendem em todo o Brasil?",
-      resposta: "Atendemos principalmente na região Sul e Sudeste, mas para projetos especiais podemos avaliar atendimento em outras regiões."
+      resposta: "Atendemos principalmente na região Sudeste, mas para projetos especiais podemos avaliar atendimento em outras regiões."
     }
   ];
 
-  // Dados da galeria (preview) - agora com múltiplas imagens
+  // Dados da galeria (preview)
   const galeriaPreview = [
     {
       id: 1,
-      titulo: "Instalação Metalúrgica - SP",
+      titulo: "Steinert Latinoamericana - Galpão Industrial",
       imagens: [
-        "/public/midias/industrial1.jpeg",
-        "/public/midias/images.jpg",
-        "/public/midias/galeria/SupermercadoJJFaria1.jpeg"
+        "/public/midias/galeria/Steinert(2).jpeg",
+        "/public/midias/galeria/Steinert(1).jpeg",
+        "/public/midias/galeria/Steinert(4).jpeg",
       ],
-      descricao: "Climatização completa de galpão industrial de 2000m²"
+      descricao: "Climatização de galpão industrial Steinert Latinoamericana",
     },
     {
       id: 2,
-      titulo: "Fábrica Têxtil - RJ",
+      titulo: "Indústria de alimentos Yupi",
       imagens: [
-        "/public/midias/images.jpg",
-        "/public/midias/industrial1.jpeg"
+        "/public/midias/galeria/industriaDeAlimentosYupi(2).jpeg",
+        "/public/midias/galeria/industriaDeAlimentosYupi(1).jpeg",
       ],
-      descricao: "Sistema de climatização para ambiente de produção têxtil"
+      descricao: "Sistema de climatização para ambiente de produção alimentícia",
     },
     {
       id: 3,
-      titulo: "Indústria Alimentícia - MG",
+      titulo: "Supermercado JJ Faria (Candeias)",
       imagens: [
+        "/public/midias/galeria/SupermercadoJJFaria1.jpeg",
         "/public/midias/galeria/SupermercadoJJFaria2.jpeg",
-        "/public/midias/galeria/SupermercadoJJFaria3.jpeg",
-        "/public/midias/industrial1.jpeg"
+        "/public/midias/galeria/SupermercadoJJFaria3.jpeg"
       ],
-      descricao: "Climatização especial para controle de temperatura em produção"
+      descricao: "Climatização de supermercado com foco em eficiência energética"
     },
     {
       id: 4,
-      titulo: "Galpão Logístico - SP",
+      titulo: "Padrão Minas - Soluções Autoadesivas",
       imagens: [
-        "/public/midias/images.jpg",
-        "/public/midias/industrial1.jpeg"
+        "/public/midias/galeria/PadraoMinas (1).jpeg",
+        "/public/midias/galeria/PadraoMinas (2).jpeg"
       ],
-      descricao: "Instalação em centro de distribuição de grande porte"
+      descricao: "Instalação em centro de distribuição de grande porte",
     }
   ];
 
@@ -160,6 +195,24 @@ const AtendimentosConcluidos = () => {
           </div>
         </div>
       </section>
+      <section className="py-20 bg-slate-900">
+              <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div className="text-center mb-12">
+                  <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+                    Alguns outros depoimentos de clientes satisfeitos
+                  </h2>
+                  <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+                    Confira o que outros de nossos clientes dizem sobre a qualidade dos nossos produtos e serviços.
+                  </p>
+                </div>
+      
+                <InfiniteMovingCards
+                  items={testimonials}
+                  direction="right"
+                  speed="slow"
+                />
+              </div>
+            </section>
 
       {/* FAQ */}
       <section className="section-padding bg-white">
@@ -239,10 +292,9 @@ const AtendimentosConcluidos = () => {
           <p className="text-xl text-gray-200 mb-8">
             Entre em contato conosco e solicite um orçamento personalizado
           </p>
-          <Link to="/contato" className="btn-secondary inline-flex items-center gap-2">
-            Solicitar Orçamento
-            <ChevronRight className="h-4 w-4" />
-          </Link>
+          <WhatsAppButton className="sm:w-auto">
+              Solicitar Orçamento Personalizado
+            </WhatsAppButton>
         </div>
       </section>
     </div>

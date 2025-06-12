@@ -127,26 +127,30 @@ const Footer = () => {
                 <MapPin className="h-5 w-5 mr-2 text-secondary flex-shrink-0 mt-0.5" />
                 <span>Belo Horizonte - MG</span>
               </li>
-              <li className="flex items-center space-x-4 pt-4">
-                <a
+              <li className="flex items-start ">
+                {/* <a
                   href="#"
                   className="text-white hover:text-secondary transition-colors"
                 >
                   <Facebook className="h-5 w-5" />
-                </a>
+                </a> */}
                 <a
                   href="https://www.instagram.com/guiasulclimatizacao?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                   className="text-white hover:text-secondary transition-colors"
                   target="_blank"
+                  
                 >
-                  <Instagram className="h-5 w-5" />
+                  
+                  <Instagram className="h-5 w-5 mr-2" />
+                  
                 </a>
-                <a
+                <span>Acesse nossa página no Instagram</span>
+                {/* <a
                   href="#"
                   className="text-white hover:text-secondary transition-colors"
                 >
                   <Linkedin className="h-5 w-5" />
-                </a>
+                </a> */}
               </li>
             </ul>
           </div>
