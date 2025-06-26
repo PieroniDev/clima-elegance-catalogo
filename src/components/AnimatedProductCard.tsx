@@ -143,7 +143,7 @@ const AnimatedProductCard = ({ product, className }: AnimatedProductCardProps) =
             >
               <WhatsAppButton 
                 message={whatsappMessage} 
-                className="w-full justify-center bg-gradient-to-r from-primary to-primary-light hover:from-primary-light hover:to-primary transition-all duration-300"
+                className="w-full justify-center   hover:bg-green-80 transition-all duration-300"
                 onClick={(e) => e.preventDefault()}
               >
                 <motion.span
